@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.2 (2026-11-03)
+
+- Plugin icon (`engine/.claude-plugin/icon.png`, 1024 px) for the directory listing.
+
 ## 2.3.1 (2026-11-03)
 
 - Publisher is now the `jsabra1` GitHub account (plugin author and marketplace owner).
