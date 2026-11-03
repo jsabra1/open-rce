@@ -12,7 +12,7 @@ RCE is memory management and shared context across AI agents: every AI tool you 
 > **You need a GitHub connector that can write.** RCE saves by writing files to your hub, so every tool needs a GitHub connection with **write** access to it. It doesn't need to create repos: if it can't, the AI asks you to create one empty private repo by hand, which takes a minute.
 >
 > - **Claude Code with the GitHub CLI (`gh`):** does everything, including creating the hub and saving binary files.
-> - **Claude.ai with a GitHub connector:** reads and writes text files, but can't create repos (it returns `403`), so you create the hub repo by hand when the AI asks.
+> - **Claude.ai with a GitHub connector:** reads and writes text files, but can't create repos: the GitHub App behind it has no repo-creation permission, and Claude's "Always allow" setting can't add one. It returns `403`, so you create the hub repo by hand when the AI asks (it gives you a prefilled link).
 > - **Not confirmed:** ChatGPT's GitHub connector. Some GitHub connectors only read.
 > - **If your connector only reads:** RCE still loads your context, but saves don't land. They come back as `⚠ RCE push failed` bullets to paste later, and you create the hub repo by hand on github.com.
 
