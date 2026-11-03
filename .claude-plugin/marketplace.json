@@ -4,13 +4,13 @@
     "name": "open-rce contributors"
   },
   "metadata": {
-    "description": "Recursive Context Engine: one private GitHub hub as shared memory for every AI tool."
+    "description": "Recursive Context Engine: memory management and shared context across AI agents, stored in a private GitHub repo you own."
   },
   "plugins": [
     {
-      "name": "rce",
+      "name": "recursive-context-engine",
       "source": "./engine",
-      "description": "Recursive Context Engine: load and save your context in a private GitHub hub."
+      "description": "Memory management and shared context across AI agents. Claude and other tools load and save your memories, project context and files (PDFs, images and other binaries) in a private GitHub repo you own."
     }
   ]
 }

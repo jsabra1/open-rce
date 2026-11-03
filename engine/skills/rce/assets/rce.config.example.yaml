@@ -1,10 +1,10 @@
 # RCE configuration. Lives at the root of your hub as rce.config.yaml.
-# The setup prompt (SETUP.md) fills it in for you. Each tool also keeps a tiny
-# pointer file with just owner and hub, so it can find the hub.
+# /rce setup fills it in for you. Tools find the hub by searching your repos
+# for this file; a pointer with just owner and hub skips that search.
 # No secrets here: access comes from each tool's GitHub connector or gh login.
 
 owner: your-github-username        # GitHub account that owns your hub
-hub: my-rce-hub                    # private repo made from hub-template/
+hub: my-rce-hub                    # private repo made from assets/hub-template/
 user_name: Alex                    # what the AI calls you in rules and saves
 timezone: UTC                      # all dates, times and file names in the hub
 

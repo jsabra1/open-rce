@@ -5,7 +5,7 @@ This file holds the full rules for agents that cannot install the `rce` skill. A
 
 ## 0. Config
 
-Before anything else, find `owner` and `hub` (from the user's instructions, or `skills/rce/rce.config.yaml`), then read `rce.config.yaml` at the root of the hub. Together they name `owner`, `hub`, `user_name`, `timezone`, and optionally `profile`, `private_files` and `writing_rules`. Below, `<owner>/<hub>` means those values. If there is no config, ask the user for owner and hub; never guess.
+Before anything else, find `owner` and `hub` (from the user's instructions, or `skills/rce/rce.config.yaml`; otherwise look for the user's private repo with `rce.config.yaml` at its root, starting with `my-rce-hub`), then read `rce.config.yaml` at the root of the hub. Together they name `owner`, `hub`, `user_name`, `timezone`, and optionally `profile`, `private_files` and `writing_rules`. Below, `<owner>/<hub>` means those values. If there is no hub, offer to set one up with `skills/rce/reference/setup.md`; never guess.
 
 ## 1. Repos
 
@@ -23,6 +23,9 @@ Load: `<hub>/AGENTS.md`, `manifest.yaml`, `me/about.md`, `me/preferences.md`. If
 Whenever the user shares something substantial (facts, decisions, plans, preferences, progress), save it if you have write access:
 - Project chat: dated entry in today's `projects/<name>/log/YYYY-MM/YYYY-MM-DD.md`, decisions at the top of `decisions/YYYY-MM.md`, current state (and its summary and `Last updated` line) in `context.md`. One commit. Only small, current files: never rewrite `manifest.yaml` on a routine save, since your connector replaces whole files.
 - No project: route each item yourself: to the matching project, to `me/updates/YYYY-MM.md` (facts about the user, tagged by topic), or to `memory/updates/YYYY-MM.md`, tagged `(auto-routed from <Chat Name>)`. Only items you can't place go to `inbox-unsorted/<Chat Name> Context.md`.
+
+- Asked to remember something: save it here too (`me/updates/` or `memory/updates/`), so every tool shares the same memory.
+- Files (PDFs, images, other binaries): save the original to the project's `docs/` with a short `<file>.md` card beside it. If you can't write binary files, write the card with `Status: binary pending` and tell the user how to finish (`skills/rce/reference/files.md`). Never save a text conversion in place of the file.
 
 End the reply with the save line: `↻ gh-rce › <folder> › <file type>`, for example `↻ gh-rce › projects/acme › decisions`. Without write access, end with `⚠ RCE push failed: no write access` and list the bullets so the user can paste them later.
 

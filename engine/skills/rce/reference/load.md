@@ -8,6 +8,7 @@ Read from `<owner>/<hub>`:
 3. `me/about.md`, `me/preferences.md`, and the newest file in `me/updates/`
 4. If the chat belongs to a project: `projects/<name>/context.md`, then the newest file in `decisions/` (or `decisions.md` if there is none yet), then the last 7 days of `log/YYYY-MM/`.
 
+In `docs/` folders, read the `.md` cards next to files; open a PDF, image or other binary only when the task needs it (`files.md`).
 Load everything else only when the task needs it: `docs/`, `chats/`, `memory/`, `me/health.md`, `me/wealth.md`, `me/relationships.md`.
 
 ### Which project is this chat?

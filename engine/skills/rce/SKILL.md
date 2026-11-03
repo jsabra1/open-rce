@@ -1,18 +1,21 @@
 ---
 name: rce
-description: "Recursive Context Engine (RCE). Use in any conversation where the user shares facts, decisions, plans, progress or preferences about themselves or their work, at the start of any chat that needs the user's context, and for any /rce command (/rce, /rce sync, /rce push, /rce pull, /rce load, /rce load deep, /rce live, /rce off, /rce on, /rce sort, /rce retire). Saves and loads the user's context in their private GitHub hub."
+description: "Recursive Context Engine (RCE): memory management and shared context across AI agents. Stores the user's memories, context and files (PDFs, images and other binaries) in a private GitHub repo they own, so Claude and other tools load and save the same memory. Use in any conversation where the user shares facts, decisions, plans, progress or preferences about themselves or their work, asks Claude to remember something, or shares a file to keep; at the start of any chat that needs the user's context; and for any /rce command (/rce, /rce setup, /rce sync, /rce push, /rce pull, /rce load, /rce load deep, /rce live, /rce off, /rce on, /rce sort, /rce files, /rce retire)."
 ---
 
 # RCE: Recursive Context Engine
 
-The user keeps their context in a private GitHub repo (the hub) so any AI tool can load it and save to it.
+The user keeps their memory and context in a private GitHub repo (the hub) so any AI tool can load it and save to it: facts and preferences, project logs and decisions, things they ask Claude to remember, and files such as PDFs and images.
 GitHub is the single source of truth. Summaries never replace originals.
 
 ## Step 0: read the config (once per chat)
 
 Find the config in two parts:
 
-1. **Pointer** (`owner` and `hub`). Look, in order: `rce.config.yaml` next to this file, then `~/.config/rce/rce.config.yaml` (Claude Code), then values in the user's custom instructions.
+1. **The hub** (`owner` and `hub`). Look, in order:
+   - a pointer file: `rce.config.yaml` next to this file, then `~/.config/rce/rce.config.yaml` (Claude Code)
+   - a line in the user's custom instructions or profile preferences, such as `My RCE hub is <owner>/<hub>`
+   - a search: get the signed-in GitHub username (`gh api user -q .login`, or the connector's "get me" tool), check `<username>/my-rce-hub`, then search that user's repos for one with `rce.config.yaml` at the root. One private match: use it and say once `RCE: using hub <owner>/<hub>`. Several: ask which. A public match never counts as a hub.
 2. **Settings.** Read `rce.config.yaml` at the root of the hub. If the pointer file holds more keys than `owner` and `hub`, those win.
 
 Together they name:
@@ -28,7 +31,7 @@ Together they name:
 | `private_files` | Files that never go into the profile or any public output |
 | `writing_rules` | Optional house style for everything written to the hub |
 
-If no pointer is found, stop and tell the user to run the setup prompt in `SETUP.md`. Do not guess an owner or hub. If the hub has no `rce.config.yaml`, use the defaults in `rce.config.example.yaml` and say so once.
+If no hub is found, offer `/rce setup` (`reference/setup.md`) and save nothing until it's done. Do not guess an owner or hub. If the hub has no `rce.config.yaml`, use the defaults in `assets/rce.config.example.yaml` and say so once.
 
 ## Step 1: read the current rules (once per chat)
 
@@ -42,6 +45,8 @@ Before your first RCE action in a chat (load, save or any `/rce` command), read 
 | `/rce push`, `/rce pull` | `push-pull.md` and `packet-template.md` |
 | `/rce live` | `live.md` |
 | `/rce sort` | `inbox.md` |
+| Files (PDFs, images, other binaries), `/rce files` | `files.md` |
+| `/rce setup`, or no hub found | `setup.md` |
 
 How to read them:
 - Read the local copy in `reference/` next to this file.
@@ -72,6 +77,7 @@ End every reply that saved something with the save line, for example `↻ gh-rce
 | Command | What it does | Rule file |
 |---|---|---|
 | `/rce` | Status: on or off, where this chat saves, access OK, last save. Check write access from the connector's repo permissions; never write a file to test it. If nothing is saved yet, offer `/rce sync` | `capture.md` |
+| `/rce setup` | Create the private hub and connect this tool | `setup.md` |
 | `/rce sync` | Save this whole chat into the hub | `sync.md` |
 | `/rce push` | Handoff packet + 4-digit code | `push-pull.md` |
 | `/rce pull <code>` | Load a handoff packet | `push-pull.md` |
@@ -79,6 +85,7 @@ End every reply that saved something with the save line, for example `↻ gh-rce
 | `/rce live`, `/rce live <code>`, `/rce live off`, `/rce live leave` | Live link between chats | `live.md` |
 | `/rce off` / `/rce on` | Pause or resume saving in this chat | none |
 | `/rce sort` | Route leftover inbox items; fold updates | `inbox.md` |
+| `/rce files` | Finish saving files marked `binary pending` | `files.md` |
 | `/rce retire <project>` | Set the project's manifest status to `archived`. Delete only on an explicit "delete" | none |
 
 `/rce` status reply:
@@ -88,7 +95,7 @@ RCE: ON · saves to <hub>/projects/acme · write access OK · last save 14:02
 
 ## Hard rules (always, even before the rules are read)
 
-- The owner is always `owner` from the config. Never call identity tools such as `get_me` to guess it.
+- The owner is always `owner` from the config or the hub found in Step 0. Use identity tools such as `get_me` only for the Step 0 search and for setup, never to change an owner that's already set.
 - Never write passwords, API keys or tokens. Write `[secret omitted]`.
 - Never copy anything in `private_files` into `<profile>` or any public output.
 - Call the user `user_name` from the config. Never write names or facts from the tool's own memory or other sources into the hub; save only what the user shares in the chat or the hub already holds.

@@ -1,7 +1,20 @@
 {
-  "name": "rce",
-  "version": "1.1.0",
-  "description": "Recursive Context Engine: load and save your context in a private GitHub hub from Claude Code.",
-  "author": { "name": "open-rce contributors" },
-  "license": "MIT"
+  "name": "recursive-context-engine",
+  "displayName": "Recursive Context Engine",
+  "version": "2.0.0",
+  "description": "Memory management and shared context across AI agents. Claude and other tools load and save your memories, project context and files (PDFs, images and other binaries) in a private GitHub repo you own.",
+  "author": {
+    "name": "open-rce contributors"
+  },
+  "homepage": "https://github.com/jsabra1/open-rce",
+  "repository": "https://github.com/jsabra1/open-rce",
+  "license": "MIT",
+  "keywords": [
+    "memory",
+    "context",
+    "github",
+    "knowledge-base",
+    "handoff",
+    "multi-agent"
+  ]
 }

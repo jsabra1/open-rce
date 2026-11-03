@@ -29,13 +29,15 @@ Decisions and log entries are written immediately, on the same save. The time-ba
 2. **Conflicts.** If a write is rejected because the file changed since you read it, re-read the file and add only your new lines again. Never drop or change lines you didn't write.
 3. **No duplicates.** Before adding, check today's log file and this month's decisions file. Skip anything already there, whoever saved it.
 4. **Changed minds.** When the user changes an earlier decision or fact, add a new entry ending `(replaces: <old item> of <date>)`, and update `context.md` to show only the current value. Never edit or delete old dated entries.
-5. **Ambiguity never blocks.** If the project or meaning is unclear (for example "ACME"), save under your best guess, mark it `(unsure: <A> or <B>)`, and ask the user in the same reply. Fix the entry when they answers.
+5. **Ambiguity never blocks.** If the project or meaning is unclear (for example "ACME"), save under your best guess, mark it `(unsure: <A> or <B>)`, and ask the user in the same reply. Fix the entry when they answer.
 6. **Chat names.** Name an inbox file from the chat's first message (a short title). Never ask the user what to call it.
 7. **Timezone.** All dates, times and file names in the hub use the `timezone` in `rce.config.yaml` (default UTC). Take the time from a tool (a clock, `date`, or the last commit) rather than estimating it; if you can't, write the date only.
-8. **Long pastes.** When the user pastes a long document, log one line describing it. Save the full text to `docs/` only if they asks.
+8. **Long pastes.** When the user pastes a long document, log one line describing it. Save the full text to `docs/` only if they ask.
 9. **Secrets.** Replace passwords, API keys and tokens with `[secret omitted]` before writing anything.
 10. **Test messages.** Anything that starts with "RCE test" goes to `inbox-unsorted/tests/YYYY-MM-DD.md`, never to project files, `me/` or `memory/`.
-11. **File headers.** If a file has a YAML header (between `---` lines), wrap every text value in double quotes (`description: "Name: Role"`). An unquoted colon breaks the header on GitHub.
+11. **Remember requests.** When the user asks you to remember something, or you would save it to your own tool's memory, save it to the hub too, so every tool shares it: facts about the user and how they like to work go to `me/updates/YYYY-MM.md`, general knowledge to `memory/updates/YYYY-MM.md`. The hub is the shared memory; a tool's own memory is only a local copy.
+12. **Files (PDFs, images, other binaries).** Follow `files.md`. Never save a text conversion in place of the original file.
+13. **File headers.** If a file has a YAML header (between `---` lines), wrap every text value in double quotes (`description: "Name: Role"`). An unquoted colon breaks the header on GitHub.
 
 ## Where it goes (repo `<hub>`)
 
@@ -97,7 +99,7 @@ End the reply with the save line, nothing after it:
 ```
 
 - `gh-rce` is the hub on GitHub (`<hub>`).
-- Then the folder (`projects/<name>`, `me`, `memory`, `inbox`), then the file type: `log`, `decisions`, `context`, `chats`, `health`, `wealth`, `relationships`, `about`, `preferences`, `people`, `tests`.
+- Then the folder (`projects/<name>`, `me`, `memory`, `inbox`), then the file type: `log`, `decisions`, `context`, `chats`, `health`, `wealth`, `relationships`, `about`, `preferences`, `people`, `tests`, `docs`.
 - Several file types in one folder: comma-separated (`log, decisions`). Several folders: separated by ` · `.
 - Example: `↻ gh-rce › projects/acme › log, decisions · me › health`
 
