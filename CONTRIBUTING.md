@@ -7,3 +7,4 @@ Thanks for helping. Issues and pull requests are welcome.
 - **Small, safe saves.** Changes must keep the small-file rules: no rewriting whole history files, no deleting, no restoring removed content.
 - **Test it.** Try the change against a throwaway private hub in at least one tool, and say which in the pull request.
 - **Changelog.** Add a line to `CHANGELOG.md` and bump `version` in `engine/.claude-plugin/plugin.json`.
+- **Starter hub.** After changing `engine/skills/rcx/assets/hub-template/`, run `scripts/sync-hub-template.sh` so the public template repo `jsabra1/rce-hub-template` matches.

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.3.0 (2026-11-03)
+
+- New public template repo `jsabra1/rce-hub-template`. Setup creates the hub from it (`gh repo create --template`, or a one-click github.com/new link in Claude.ai), so the connector writes only `rce.config.yaml`. Empty-repo setup still works as a fallback.
+- `scripts/sync-hub-template.sh` keeps the template repo matching `engine/skills/rcx/assets/hub-template/`.
+
 ## 2.2.1 (2026-11-03)
 
 - Setup explains the GitHub connector's `403` on repo creation (its GitHub App has no repo-creation permission) and gives a prefilled github.com/new link instead of retrying.

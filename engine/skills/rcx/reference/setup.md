@@ -27,16 +27,18 @@ If you can read but not write, say so: RCE will load context but saves won't lan
 
 1. Check whether `<owner>/<hub>` exists. If it's already an RCE hub (private, with `rce.config.yaml` at the root), say so and skip to step 5. If it exists but isn't, ask: use it (only if it's private and empty or holds only a README), or pick another name.
 2. Ask for a yes: "I'll create the **private** repo `<owner>/<hub>`. OK?" Wait for it.
-3. Create it as **private**, with a starter README so it has a branch to commit to. In Claude Code: `gh repo create <owner>/<hub> --private --add-readme`.
+3. Create it as **private** from the public template `jsabra1/rce-hub-template`, which already holds every starter file. In Claude Code: `gh repo create <owner>/<hub> --private --template jsabra1/rce-hub-template`.
    Many connectors can't create repos. Claude.ai's GitHub connector returns `403: Resource not accessible by integration`: the GitHub App behind it doesn't have permission to create repos, and the tool's "Always allow" setting in Claude can't add it. Don't retry and don't troubleshoot. Tell the user:
-   > Your GitHub connector can't create repos, so please make this one: open https://github.com/new?name=<hub>&visibility=private, tick **Add a README file**, select **Create repository**, then say done.
+   > Your GitHub connector can't create repos, so please make this one: open https://github.com/new?template_owner=jsabra1&template_name=rce-hub-template&name=<hub>&visibility=private, check that **Private** is selected, select **Create repository**, then say done.
    >
    > If your GitHub connector only has access to selected repositories, add `<hub>` to it in GitHub → Settings → Applications.
 
-   Then wait. The hub's own `README.md` replaces the starter one in step 4.
+   Then wait. If the template can't be used, create an empty private repo with a README instead (`--add-readme`, or tick **Add a README file**); step 4 then writes the starter files.
 4. Confirm the repo is private before writing anything to it. If it's public, stop and tell the user.
 
 ## Step 4: fill the hub (one commit)
+
+Read the hub's root listing first. If it already has `AGENTS.md` and `manifest.yaml` (made from the template), skip item 1, and in item 3 write only `rce.config.yaml` (commit message `Add RCE config`).
 
 1. List every file under `assets/hub-template/` (including `.gitkeep` files) and read each one.
 2. Read `assets/rce.config.example.yaml` and fill in `owner`, `hub`, `user_name`, `timezone`. Leave the optional keys as they are.
