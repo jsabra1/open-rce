@@ -4,10 +4,11 @@ About 5 minutes. You type one sentence into a chat; the AI creates your private 
 
 ## Before you start
 
-> **You need a GitHub connector that can write.** RCE saves by writing files to your hub, so every tool needs a GitHub connection with **write** access to it (and permission to create a repo, if the AI sets up the hub for you).
+> **You need a GitHub connector that can write.** RCE saves by writing files to your hub, so every tool needs a GitHub connection with **write** access to it. It doesn't need to create repos: if it can't, the AI asks you to create one empty private repo by hand, which takes a minute.
 >
-> - **Tested and working:** a GitHub MCP connector with write access in Claude.ai, and the GitHub CLI (`gh`) in Claude Code.
-> - **Not confirmed:** whether Claude.ai's built-in GitHub integration, or ChatGPT's GitHub connector, can write. Some GitHub connectors only read.
+> - **Claude Code with the GitHub CLI (`gh`):** does everything, including creating the hub.
+> - **Claude.ai with a GitHub connector:** reads and writes files, but can't create repos (it returns `403`), so you create the hub repo by hand when the AI asks.
+> - **Not confirmed:** ChatGPT's GitHub connector. Some GitHub connectors only read.
 > - **If your connector only reads:** RCE still loads your context, but saves don't land. They come back as `⚠ RCE push failed` bullets to paste later, and you create the hub repo by hand on github.com.
 
 Connect GitHub first:
@@ -26,7 +27,7 @@ Set up RCE for me by following https://github.com/jsabra1/open-rce/blob/main/BOO
 The AI will:
 1. Check your GitHub access and confirm your username.
 2. Ask your name, your timezone and a name for your hub (default `my-rce-hub`).
-3. Ask your OK, then create the hub as a **private** repo and fill it from `hub-template/`, with your settings in `rce.config.yaml`.
+3. Ask your OK, then create the hub as a **private** repo (in Claude.ai it asks you to create the empty repo on github.com, since the connector can't), and fill it from `hub-template/`, with your settings in `rce.config.yaml`.
 4. Install RCE in the tool you're using (see step 2).
 5. Run a first test: show the status line and save one fact about you.
 

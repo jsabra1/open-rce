@@ -28,17 +28,20 @@ If you can read but not write, say so clearly: RCE will load context but saves w
 
 ## Step 3: create the private hub
 
-1. Check whether `<owner>/<hub>` exists. If it's already an RCE hub (private, with `rce.config.yaml` at the root), say so and skip to step 5. If it exists but isn't, ask: use it (only if it's private and empty), or pick another name.
+1. Check whether `<owner>/<hub>` exists. If it's already an RCE hub (private, with `rce.config.yaml` at the root), say so and skip to step 5. If it exists but isn't, ask: use it (only if it's private and empty or holds only a README), or pick another name.
 2. Ask for a yes: "I'll create the **private** repo `<owner>/<hub>`. OK?" Wait for it.
-3. Create it as **private**, with no README. If creation fails or the connector can't create repos, tell the user: "Create a private, empty repo named `<hub>` at github.com/new, then say done." Wait.
+3. Create it as **private**, with a starter README so it has a branch to commit to. Many connectors can't create repos (Claude.ai's GitHub connector returns `403: Resource not accessible by integration`). If creation fails, tell the user:
+   > Go to github.com/new, name the repo `<hub>`, set it to **Private**, tick **Add a README file**, create it, then say done.
+
+   Then wait. The hub's own `README.md` replaces the starter one in step 4.
 4. Confirm the repo is private before writing anything to it. If it's public, stop and tell the user.
 
 ## Step 4: fill the hub (one commit)
 
-1. List every file under `hub-template/` in `jsabra1/open-rce` (including `.gitkeep` files) and read each one.
+1. List every file under `hub-template/` in `jsabra1/open-rce` (including `.gitkeep` files) and read each one. If you have a shell (code execution or Claude Code), cloning `jsabra1/open-rce` is faster than reading the files one by one.
 2. Read `rce.config.example.yaml` and fill it in: `owner`, `hub`, `user_name`, `timezone`. Leave the optional keys as they are.
 3. Write everything to the hub in one commit, message `Start RCE hub`:
-   - every `hub-template/` file at the same path without the `hub-template/` prefix
+   - every `hub-template/` file at the same path without the `hub-template/` prefix (its `README.md` replaces any starter README)
    - the filled config as `rce.config.yaml` at the hub root
 4. Read the hub's root listing back and check the files are there.
 
