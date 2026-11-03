@@ -5,7 +5,7 @@ This file holds the full rules for agents that cannot install the `rce` skill. A
 
 ## 0. Config
 
-Before anything else, read `skills/rce/rce.config.yaml` (or the values the user pasted from it). It names `owner`, `hub`, `user_name`, `timezone`, and optionally `profile`, `private_files` and `writing_rules`. Below, `<owner>/<hub>` means those values. If there is no config, ask the user for owner and hub; never guess.
+Before anything else, find `owner` and `hub` (from the user's instructions, or `skills/rce/rce.config.yaml`), then read `rce.config.yaml` at the root of the hub. Together they name `owner`, `hub`, `user_name`, `timezone`, and optionally `profile`, `private_files` and `writing_rules`. Below, `<owner>/<hub>` means those values. If there is no config, ask the user for owner and hub; never guess.
 
 ## 1. Repos
 

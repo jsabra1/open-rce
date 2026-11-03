@@ -1,4 +1,6 @@
-# RCE configuration. Copy this file to engine/skills/rce/rce.config.yaml and fill it in.
+# RCE configuration. Lives at the root of your hub as rce.config.yaml.
+# The setup prompt (SETUP.md) fills it in for you. Each tool also keeps a tiny
+# pointer file with just owner and hub, so it can find the hub.
 # No secrets here: access comes from each tool's GitHub connector or gh login.
 
 owner: your-github-username        # GitHub account that owns your hub

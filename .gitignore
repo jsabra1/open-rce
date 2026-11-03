@@ -1,4 +1,4 @@
-# Your filled-in config stays local
-engine/skills/rce/rce.config.yaml
-*.zip
 .DS_Store
+*.zip
+# A filled-in config never belongs in this repo
+rce.config.yaml

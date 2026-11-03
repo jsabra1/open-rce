@@ -20,7 +20,7 @@ RCE gives every AI tool you use the same memory. Your context (who you are, your
    (rce skill)          (rce plugin)          (AGENTS.md pasted in)
         \                    |                        /
          \                   |                       /
-          +--------- reads rce.config.yaml ---------+
+          +------ pointer: owner + hub name --------+
                              |
                  GitHub connector or gh / git
                              |
@@ -29,7 +29,7 @@ RCE gives every AI tool you use the same memory. Your context (who you are, your
 ```
 
 1. The **engine** (`engine/`) holds the rules: when to save, where each item goes, the commands.
-2. The **config** (`rce.config.yaml`) tells the engine whose hub to use. No secrets in it; access comes from each tool's GitHub connector.
+2. The **config** (`rce.config.yaml` at the root of your hub) holds your settings. Each tool keeps a two-line pointer (`owner`, `hub`) to find it. No secrets anywhere; access comes from each tool's GitHub connector.
 3. The **hub** (made from `hub-template/`) holds your context. It stays private.
 
 ## What's in this repo
@@ -38,8 +38,9 @@ RCE gives every AI tool you use the same memory. Your context (who you are, your
 |---|---|
 | `engine/` | The `rce` skill, its rule files, the Claude Code plugin and `AGENTS.md` |
 | `hub-template/` | An empty starter hub to copy into your own private repo |
-| `rce.config.example.yaml` | The config to copy and fill in |
-| `SETUP.md` | Step-by-step setup for each tool |
+| `rce.config.example.yaml` | The settings file the setup copies into your hub |
+| `SETUP.md` | Setup in one prompt, plus a manual path |
+| `BOOTSTRAP.md` | The setup steps the AI follows |
 
 ## Commands
 
@@ -56,7 +57,13 @@ RCE gives every AI tool you use the same memory. Your context (who you are, your
 
 ## Get started
 
-Follow [SETUP.md](SETUP.md). It takes about 15 minutes.
+Connect GitHub in your AI tool (with write access), then paste this into a new chat:
+
+```
+Set up RCE for me by following https://github.com/jsabra1/open-rce/blob/main/BOOTSTRAP.md
+```
+
+The AI creates your private hub and installs RCE; you answer three questions. Details and a manual path: [SETUP.md](SETUP.md).
 
 ## License
 

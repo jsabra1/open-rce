@@ -10,7 +10,12 @@ GitHub is the single source of truth. Summaries never replace originals.
 
 ## Step 0: read the config (once per chat)
 
-Read `rce.config.yaml` next to this file. It names:
+Find the config in two parts:
+
+1. **Pointer** (`owner` and `hub`). Look, in order: `rce.config.yaml` next to this file, then `~/.config/rce/rce.config.yaml` (Claude Code), then values in the user's custom instructions.
+2. **Settings.** Read `rce.config.yaml` at the root of the hub. If the pointer file holds more keys than `owner` and `hub`, those win.
+
+Together they name:
 
 | Key | Meaning |
 |---|---|
@@ -23,7 +28,7 @@ Read `rce.config.yaml` next to this file. It names:
 | `private_files` | Files that never go into the profile or any public output |
 | `writing_rules` | Optional house style for everything written to the hub |
 
-If there is no `rce.config.yaml`, stop and tell the user to copy `rce.config.example.yaml` and fill it in (see `SETUP.md`). Do not guess an owner or hub.
+If no pointer is found, stop and tell the user to run the setup prompt in `SETUP.md`. Do not guess an owner or hub. If the hub has no `rce.config.yaml`, use the defaults in `rce.config.example.yaml` and say so once.
 
 ## Step 1: read the current rules (once per chat)
 
