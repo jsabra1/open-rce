@@ -54,7 +54,6 @@ RCE gives every AI tool you use the same memory. Your context (who you are, your
 | `/rce live` | Link two chats until closed |
 | `/rce sort` | Route leftover inbox items |
 | `/rce off` / `/rce on` | Pause or resume saving in this chat |
-| `/rce open <alias>` | Load a restricted repo from your config |
 
 ## Get started
 

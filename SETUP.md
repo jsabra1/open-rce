@@ -49,9 +49,8 @@ The AI will:
 
 ## Optional
 
-Ask the AI in any RCE chat to do these for you, or edit `rce.config.yaml` in your hub:
+Ask the AI in any RCE chat to do this for you, or edit `rce.config.yaml` in your hub:
 
-- **A restricted repo,** for context loaded only on request (for example coaching notes): another private repo, an alias in `restricted`, a row in the "Private names" table of your hub's `AGENTS.md`. Load it with `/rce open <alias>`.
 - **A public profile:** set `profile`, and choose the allowed sections in `public/fields.yaml`. Private files are never copied there.
 
 ## Manual setup (no write-capable connector)

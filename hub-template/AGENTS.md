@@ -24,17 +24,9 @@ This repo holds one person's context. Rules for loading and saving come from the
 
 Routine saves write only small, current files: daily logs (`log/YYYY-MM/YYYY-MM-DD.md`), monthly decisions (`decisions/YYYY-MM.md`), monthly updates and `context.md`. They never rewrite `manifest.yaml` except to add, rename or retire a project or add a keyword.
 
-## Private names
-
-Restricted repos are named here, never in the skill's config. Load one only when the user types `/rce open <alias>`.
-
-| Alias | Repo | Notes |
-|---|---|---|
-| (none yet) | | |
-
 ## Rules
 
-- Never copy `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/` or anything from a restricted repo into a public profile or any public output.
+- Never copy `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/` into a public profile or any public output.
 - Never write passwords, API keys or tokens. Write `[secret omitted]`.
 - Never re-add content that is missing; it was removed on purpose.
 - Never delete files. Move them to an archive folder instead.
