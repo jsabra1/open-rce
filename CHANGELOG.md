@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.3.1 (2026-11-03)
+
+- Publisher is now the `jsabra1` GitHub account (plugin author and marketplace owner).
+- The listing page has a "Known limits" section linking the open issues.
+
 ## 2.3.0 (2026-11-03)
 
 - New public template repo `jsabra1/rce-hub-template`. Setup creates the hub from it (`gh repo create --template`, or a one-click github.com/new link in Claude.ai), so the connector writes only `rce.config.yaml`. Empty-repo setup still works as a fallback.

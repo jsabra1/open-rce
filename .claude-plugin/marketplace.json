@@ -1,7 +1,8 @@
 {
   "name": "open-rce",
   "owner": {
-    "name": "open-rce contributors"
+    "name": "jsabra1",
+    "url": "https://github.com/jsabra1"
   },
   "metadata": {
     "description": "Recursive Context Engine: memory management and shared context across AI agents, stored in a private GitHub repo you own."

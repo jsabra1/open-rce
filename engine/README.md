@@ -51,6 +51,14 @@ Everything is plain Markdown in your repo. There's no database, no server, and n
 | Claude.ai chat | Skill. No hook, so RCE starts when the skill triggers or you type `/rcx`. Binary files are usually saved as `binary pending` cards |
 | ChatGPT and other agents | Not through this plugin. Follow `BOOTSTRAP.md` in [jsabra1/open-rce](https://github.com/jsabra1/open-rce) |
 
+## Known limits
+
+These are open and will be fixed in later releases:
+
+- Native setup for ChatGPT users ([#1](https://github.com/jsabra1/open-rce/issues/1)).
+- Not yet confirmed in Claude.ai: remember requests ([#2](https://github.com/jsabra1/open-rce/issues/2)), saving PDFs and images ([#3](https://github.com/jsabra1/open-rce/issues/3)), and finding the hub in a new chat with no pointer ([#4](https://github.com/jsabra1/open-rce/issues/4)).
+- Claude.ai's GitHub connector can't create repos, so setup there asks you to create the hub with one click on github.com.
+
 ## License
 
 MIT. Source, setup guide and issues: [github.com/jsabra1/open-rce](https://github.com/jsabra1/open-rce).
