@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.1 (2026-11-03)
+
+- Setup explains the GitHub connector's `403` on repo creation (its GitHub App has no repo-creation permission) and gives a prefilled github.com/new link instead of retrying.
+
 ## 2.2.0 (2026-11-03)
 
 - The skill is now named `rcx` (folder `engine/skills/rcx/`), so the slash command apps show is `/rcx` and matches the commands. The plugin is still Recursive Context Engine.

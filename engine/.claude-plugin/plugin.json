@@ -1,7 +1,7 @@
 {
   "name": "recursive-context-engine",
   "displayName": "Recursive Context Engine",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Memory management and shared context across AI agents. Claude and other tools load and save your memories, project context and files (PDFs, images and other binaries) in a private GitHub repo you own.",
   "author": {
     "name": "open-rce contributors"
