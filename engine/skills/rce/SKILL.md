@@ -15,7 +15,7 @@ Find the config in two parts:
 1. **The hub** (`owner` and `hub`). Look, in order:
    - a pointer file: `rce.config.yaml` next to this file, then `~/.config/rce/rce.config.yaml` (Claude Code)
    - a line in the user's custom instructions or profile preferences, such as `My RCE hub is <owner>/<hub>`
-   - a search: get the signed-in GitHub username (`gh api user -q .login`, or the connector's "get me" tool), check `<username>/my-rce-hub`, then search that user's repos for one with `rce.config.yaml` at the root. One private match: use it and say once `RCE: using hub <owner>/<hub>`. Several: ask which. A public match never counts as a hub.
+   - a search: get the signed-in GitHub username (`gh api user -q .login`, or the connector's "get me" tool), check `<username>/my-rce-hub`, then list that user's private repos and check each for `rce.config.yaml` at the root, names containing `rce` or `hub` first. Read the file directly; don't rely on code search, which can miss new repos. One private match: use it and say once `RCE: using hub <owner>/<hub>`. Several: ask which. A public match never counts as a hub.
 2. **Settings.** Read `rce.config.yaml` at the root of the hub. If the pointer file holds more keys than `owner` and `hub`, those win.
 
 Together they name:

@@ -36,7 +36,7 @@ Everything is plain Markdown in your repo. There's no database, no server, and n
 - **GitHub only.** RCE reads and writes your own hub repo through the GitHub connector or the `gh`/`git` login you've already set up in that tool. It sends nothing to any other service and has no telemetry.
 - **Your data stays in your repo.** RCE saves what you share in chat (which can include personal facts) to your private hub, and keeps it until you delete it there. It never writes passwords, keys or tokens, and never copies the files listed in `private_files` into a public repo.
 - **Repos.** It creates one repo, your private hub, and only after you say yes. It never deletes a repo.
-- **Finding your hub.** If no pointer is set, RCE reads your GitHub username and searches your repos for the one with `rce.config.yaml` at its root.
+- **Finding your hub.** If no pointer is set, RCE reads your GitHub username and lists your private repos and looks for the one with `rce.config.yaml` at its root.
 - **Setup files.** `/rce setup` copies the starter files from this plugin's `skills/rce/assets/`. If a tool can't read them locally, it reads the same files from the public `jsabra1/open-rce` repo.
 - **Optional rules repo.** If you set `rules_repo` in your config, RCE reads its rule files from that GitHub repo instead of the copies in this plugin.
 - **Session hook (Claude Code and Cowork).** At session start, a hook prints `hooks/session-start.md`, a short reminder that RCE is on. It runs nothing else and makes no network calls.
