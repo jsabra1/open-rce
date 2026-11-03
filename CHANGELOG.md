@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 (2026-11-03)
+
+- The skill is now named `rcx` (folder `engine/skills/rcx/`), so the slash command apps show is `/rcx` and matches the commands. The plugin is still Recursive Context Engine.
+
 ## 2.1.0 (2026-11-03)
 
 - Commands are now `/rcx …` (`/rcx setup`, `/rcx load`, `/rcx push`, `/rcx pull <code>`, …), so they can't be confused with other `/rce` skills or commands a tool already knows.

@@ -1,5 +1,5 @@
 ---
-name: rce
+name: rcx
 description: "Recursive Context Engine (RCE): memory management and shared context across AI agents. Stores the user's memories, context and files (PDFs, images and other binaries) in a private GitHub repo they own, so Claude and other tools load and save the same memory. Use in any conversation where the user shares facts, decisions, plans, progress or preferences about themselves or their work, asks Claude to remember something, or shares a file to keep; at the start of any chat that needs the user's context; and for any /rcx command (/rcx, /rcx setup, /rcx sync, /rcx push, /rcx pull, /rcx load, /rcx load deep, /rcx live, /rcx off, /rcx on, /rcx sort, /rcx files, /rcx retire)."
 ---
 
@@ -50,7 +50,7 @@ Before your first RCE action in a chat (load, save or any `/rcx` command), read 
 
 How to read them:
 - Read the local copy in `reference/` next to this file.
-- If `rules_repo` is set, read the same files from that repo instead (branch `main`, folder `engine/skills/rce/reference/`) with the GitHub connector, or `git`/`gh` if that is what this session has. The GitHub copy wins.
+- If `rules_repo` is set, read the same files from that repo instead (branch `main`, folder `engine/skills/rcx/reference/`) with the GitHub connector, or `git`/`gh` if that is what this session has. The GitHub copy wins.
 - Read each file once per chat and reuse it.
 
 ## If the rules or the hub can't be read (fallback)

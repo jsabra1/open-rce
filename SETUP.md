@@ -53,8 +53,8 @@ Ask the AI in any RCE chat to do this for you, or edit `rce.config.yaml` in your
 
 ## Manual setup (no write-capable connector)
 
-1. On github.com, create a new **private** repo (for example `my-rce-hub`) and upload the contents of `engine/skills/rce/assets/hub-template/` from this repo.
-2. Copy `engine/skills/rce/assets/rce.config.example.yaml` into the hub as `rce.config.yaml` and set `owner`, `hub`, `user_name` and `timezone`.
+1. On github.com, create a new **private** repo (for example `my-rce-hub`) and upload the contents of `engine/skills/rcx/assets/hub-template/` from this repo.
+2. Copy `engine/skills/rcx/assets/rce.config.example.yaml` into the hub as `rce.config.yaml` and set `owner`, `hub`, `user_name` and `timezone`.
 3. Install the plugin as in step 1. In tools without plugins, paste `engine/AGENTS.md` into the instructions, with your owner and hub.
 
 ## Troubleshooting

@@ -12,7 +12,7 @@ timezone: UTC                      # all dates, times and file names in the hub
 profile: ""                        # for example my-public-profile
 
 # Optional: where the current rules live on GitHub. Leave empty to use only
-# the local copy in skills/rce/reference/.
+# the local copy in skills/rcx/reference/.
 rules_repo: ""                     # for example your-github-username/open-rce
 
 # Files in me/ that never go into the profile or any public output

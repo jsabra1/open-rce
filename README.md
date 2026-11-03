@@ -33,14 +33,14 @@ RCE is memory management and shared context across AI agents: every AI tool you 
 
 1. The **engine** (`engine/`) holds the rules: when to save, where each item goes, the commands.
 2. The **config** (`rce.config.yaml` at the root of your hub) holds your settings. Each tool finds the hub by looking for that file in your repos, or from an optional two-line pointer (`owner`, `hub`). No secrets anywhere; access comes from each tool's GitHub connector.
-3. The **hub** (made from `engine/skills/rce/assets/hub-template/`) holds your context. It stays private.
+3. The **hub** (made from `engine/skills/rcx/assets/hub-template/`) holds your context. It stays private.
 
 ## What's in this repo
 
 | Path | What it is |
 |---|---|
-| `engine/` | The **Recursive Context Engine** plugin: the `rce` skill, its rule files, the session hook and `AGENTS.md` |
-| `engine/skills/rce/assets/` | The starter hub and the settings file that `/rcx setup` copies into your hub |
+| `engine/` | The **Recursive Context Engine** plugin: the `rcx` skill, its rule files, the session hook and `AGENTS.md` |
+| `engine/skills/rcx/assets/` | The starter hub and the settings file that `/rcx setup` copies into your hub |
 | `SETUP.md` | Install, then `/rcx setup`, plus a manual path |
 | `BOOTSTRAP.md` | Setup for tools without the plugin, such as ChatGPT |
 
