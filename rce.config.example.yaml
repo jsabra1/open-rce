@@ -1,0 +1,28 @@
+# RCE configuration. Copy this file to engine/skills/rce/rce.config.yaml and fill it in.
+# No secrets here: access comes from each tool's GitHub connector or gh login.
+
+owner: your-github-username        # GitHub account that owns your hub
+hub: my-rce-hub                    # private repo made from hub-template/
+user_name: Alex                    # what the AI calls you in rules and saves
+timezone: UTC                      # all dates, times and file names in the hub
+
+# Optional: a generated public profile (leave empty to skip)
+profile: ""                        # for example my-public-profile
+
+# Optional: where the current rules live on GitHub. Leave empty to use only
+# the local copy in skills/rce/reference/.
+rules_repo: ""                     # for example your-github-username/open-rce
+
+# Files in me/ that never go into the profile or any public output
+private_files:
+  - me/health.md
+  - me/wealth.md
+  - me/relationships.md
+  - me/updates/
+
+# Optional: house style for everything the AI writes into the hub
+writing_rules: []
+#  - American English
+#  - No em dashes
+
+transcript_split_chars: 500000

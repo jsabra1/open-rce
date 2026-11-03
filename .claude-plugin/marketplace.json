@@ -1,0 +1,16 @@
+{
+  "name": "open-rce",
+  "owner": {
+    "name": "open-rce contributors"
+  },
+  "metadata": {
+    "description": "Recursive Context Engine: one private GitHub hub as shared memory for every AI tool."
+  },
+  "plugins": [
+    {
+      "name": "rce",
+      "source": "./engine",
+      "description": "Recursive Context Engine: load and save your context in a private GitHub hub."
+    }
+  ]
+}

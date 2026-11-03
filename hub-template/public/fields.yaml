@@ -1,0 +1,9 @@
+# Only these sections may be published to a public profile (profile in rce.config.yaml).
+# Private files (health, wealth, relationships, people, updates) are never public.
+sources: [me/about.md, me/preferences.md]
+sections:
+  - One-liner
+  - Role and work
+  - Background
+  - Current focus
+  - How to work with me   # public writing and format preferences only

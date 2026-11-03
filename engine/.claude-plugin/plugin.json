@@ -1,0 +1,7 @@
+{
+  "name": "rce",
+  "version": "1.0.0",
+  "description": "Recursive Context Engine: load and save your context in a private GitHub hub from Claude Code.",
+  "author": { "name": "open-rce contributors" },
+  "license": "MIT"
+}
