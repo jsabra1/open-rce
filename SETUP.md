@@ -2,6 +2,14 @@
 
 About 15 minutes. Run every command from the same folder. You need a GitHub account and, for the command-line steps, `git` and the GitHub CLI (`gh auth login` done once).
 
+## Before you start
+
+> **You need a GitHub connector that can write.** RCE saves by writing files to your hub, so every tool needs a GitHub connection with **write** access to it (and permission to create a repo, if the AI sets up the hub for you).
+>
+> - **Tested and working:** a GitHub MCP connector with write access in Claude.ai, and the GitHub CLI (`gh`) in Claude Code.
+> - **Not confirmed:** whether Claude.ai's built-in GitHub integration, or ChatGPT's GitHub connector, can write. Some GitHub connectors only read.
+> - **If your connector only reads:** RCE still loads your context, but saves don't land. They come back as `⚠ RCE push failed` bullets to paste later, and you create the hub repo by hand on github.com.
+
 ## 1. Create your private hub
 
 Your hub is a new **private** repo made from `hub-template/`.
@@ -47,7 +55,7 @@ The config holds no secrets, and `.gitignore` keeps it out of this repo. Restric
 
 ## 3. Install it in each tool
 
-Every tool needs read and write access to your hub. RCE never asks for a token in chat.
+Every tool needs a GitHub connector with read **and write** access to your hub (see "Before you start"). RCE never asks for a token in chat.
 
 ### Claude.ai and Cowork
 

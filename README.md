@@ -7,6 +7,12 @@ RCE gives every AI tool you use the same memory. Your context (who you are, your
 - **Small, safe saves.** Daily log files, monthly decision files and a short `context.md` per project. Nothing is overwritten or deleted.
 - **Handoffs.** `/rce push` turns a chat into a packet with a 4-digit code; `/rce pull <code>` continues it in another tool.
 
+> **You need a GitHub connector that can write.** RCE saves by writing files to your hub, so every tool needs a GitHub connection with **write** access to it (and permission to create a repo, if the AI sets up the hub for you).
+>
+> - **Tested and working:** a GitHub MCP connector with write access in Claude.ai, and the GitHub CLI (`gh`) in Claude Code.
+> - **Not confirmed:** whether Claude.ai's built-in GitHub integration, or ChatGPT's GitHub connector, can write. Some GitHub connectors only read.
+> - **If your connector only reads:** RCE still loads your context, but saves don't land. They come back as `⚠ RCE push failed` bullets to paste later, and you create the hub repo by hand on github.com.
+
 ## How it fits together
 
 ```
