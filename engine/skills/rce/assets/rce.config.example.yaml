@@ -1,5 +1,5 @@
 # RCE configuration. Lives at the root of your hub as rce.config.yaml.
-# /rce setup fills it in for you. Tools find the hub by searching your repos
+# /rcx setup fills it in for you. Tools find the hub by searching your repos
 # for this file; a pointer with just owner and hub skips that search.
 # No secrets here: access comes from each tool's GitHub connector or gh login.
 

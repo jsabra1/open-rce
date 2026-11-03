@@ -1,6 +1,6 @@
 # Load
 
-## Standard load (`/rce load`, and automatically at the start of a chat that needs context)
+## Standard load (`/rcx load`, and automatically at the start of a chat that needs context)
 
 Read from `<owner>/<hub>`:
 1. `AGENTS.md`
@@ -17,11 +17,11 @@ Load everything else only when the task needs it: `docs/`, `chats/`, `memory/`, 
 2. The user names a project: use it.
 3. Otherwise: no project. Route each save with the rules in `capture.md`.
 
-## Deep pull (`/rce load deep`)
+## Deep pull (`/rcx load deep`)
 
 For agents that need the full picture. Read in this order:
 1. `AGENTS.md`, `manifest.yaml`
-2. All of `me/`, including `me/updates/` (skip the private files with `/rce load deep public`)
+2. All of `me/`, including `me/updates/` (skip the private files with `/rcx load deep public`)
 3. Every project: `project.md`, `context.md`, all of `decisions/` and `decisions.md`, all of `log/` (daily and monthly files)
 4. Every project's `docs/` and `frameworks/`
 5. `memory/`, including `memory/updates/`

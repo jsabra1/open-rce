@@ -2,7 +2,7 @@
 
 Save whenever the user shares something substantial about themselves or their work: facts, decisions, plans, goals, preferences, project progress.
 You judge what is substantial. Skip chit-chat. Do not batch: save in the same turn.
-Do not save when the user has typed `/rce off` in this chat, or the chat is incognito.
+Do not save when the user has typed `/rcx off` in this chat, or the chat is incognito.
 
 ## Small files only
 
@@ -17,7 +17,7 @@ GitHub connectors can't append: changing one line means uploading the whole file
 | Current state of a project | `context.md` | Snapshot, kept under about 4 KB (see below) |
 
 Never rewrite these on a routine save:
-- Snapshot files: the existing `me/*.md` and `memory/*.md` files. Only `/rce sort` changes them.
+- Snapshot files: the existing `me/*.md` and `memory/*.md` files. Only `/rcx sort` changes them.
 - `manifest.yaml`, except when a project is registered, renamed or retired, or a keyword is added.
 - Reference pages (`project.md`, `frameworks/`, `docs/`, transcripts, handoff packets), unless the user asks to change them. When you do change one, keep every other line exactly as it was, and say in the reply which lines you changed.
 
@@ -67,7 +67,7 @@ Commit message: `rce: <project>: <short topic>`.
 ## `me/` and `memory/` save
 
 Add a bullet to this month's updates file: `- YYYY-MM-DD [health]: <fact> (auto-routed from <Chat Name>)`. If a fact replaces an older one, say so in the bullet: `(replaces <old fact>)`.
-`/rce sort` folds updates into the snapshot files (`me/health.md` and so on) when the user asks.
+`/rcx sort` folds updates into the snapshot files (`me/health.md` and so on) when the user asks.
 Commit message: `rce: me: <topic>` or `rce: memory: <topic>`. Items for several targets go in one commit: `rce: <first target>: <short topic>`.
 
 ## Inbox save (fallback only)

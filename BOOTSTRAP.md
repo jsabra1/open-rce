@@ -1,6 +1,6 @@
 # RCE setup, run by the AI
 
-**For the AI.** The user asked you to set up RCE (Recursive Context Engine) by pointing you at this file. This file is for tools that don't have the RCE plugin installed yet, such as ChatGPT. With the plugin, the user types `/rce setup` instead.
+**For the AI.** The user asked you to set up RCE (Recursive Context Engine) by pointing you at this file. This file is for tools that don't have the RCE plugin installed yet, such as ChatGPT. With the plugin, the user types `/rcx setup` instead.
 
 **For people.** You don't need to read this. See [SETUP.md](SETUP.md).
 

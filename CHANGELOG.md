@@ -1,8 +1,12 @@
 # Changelog
 
+## 2.1.0 (2026-11-03)
+
+- Commands are now `/rcx …` (`/rcx setup`, `/rcx load`, `/rcx push`, `/rcx pull <code>`, …), so they can't be confused with other `/rce` skills or commands a tool already knows.
+
 ## 2.0.0 (2026-11-03)
 
-- The plugin is now **Recursive Context Engine** (`recursive-context-engine`), ready for Anthropic's plugin directory. It works in Claude.ai, Cowork and Claude Code. Reinstall with `claude plugin install recursive-context-engine@open-rce`; the old `rce@open-rce` is gone. Commands stay `/rce …`.
+- The plugin is now **Recursive Context Engine** (`recursive-context-engine`), ready for Anthropic's plugin directory. It works in Claude.ai, Cowork and Claude Code. Reinstall with `claude plugin install recursive-context-engine@open-rce`; the old `rce@open-rce` is gone. Commands stay `/rce …` (renamed to `/rcx` in 2.1.0).
 - `/rce setup` is built in (`reference/setup.md`). `BOOTSTRAP.md` is now for tools without the plugin.
 - RCE finds the hub by itself, by searching your repos for `rce.config.yaml`. The pointer file is optional, and the `rce.zip` upload is no longer needed.
 - Files: PDFs, images and other binaries are saved as originals with a card beside each one (`reference/files.md`). Tools that can only write text leave a `binary pending` card; `/rce files` finishes them.

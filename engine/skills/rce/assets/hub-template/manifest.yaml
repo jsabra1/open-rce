@@ -5,5 +5,5 @@ projects:
   - name: "Example"
     folder: projects/example
     keywords: ["example", "sample project"]
-    description: "A sample project showing the folder layout. Rename it or retire it with /rce retire Example."
+    description: "A sample project showing the folder layout. Rename it or retire it with /rcx retire Example."
     status: active

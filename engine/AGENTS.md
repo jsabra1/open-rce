@@ -31,13 +31,13 @@ End the reply with the save line: `↻ gh-rce › <folder> › <file type>`, for
 
 ## 4. Commands
 
-- `/rce`: report access and where this chat saves. Check write access from the repo permissions; never write a file to test it.
-- `/rce load`: the load in section 2.
-- `/rce load deep`: read all of `me/`, every project's `project.md`, `context.md`, `decisions/`, `log/`, `docs/`, then `memory/`, `inbox-unsorted/`, open handoffs, and only the file lists of `chats/` folders. Stop before your context is full. Report: `RCE deep load: <n> projects · <n> files · ~<n>K tokens · skipped: <what>`.
-- `/rce sync`: save this whole chat (transcript to `chats/`, plus log, decisions, context). Running it twice adds nothing.
-- `/rce push`: write a handoff packet to `handoffs/<code>_<Topic>.md` and reply with `/rce pull <code>`.
-- `/rce pull <code>`: read that packet in full, recap it, continue.
-- `/rce off` / `/rce on`: pause or resume saving in this chat.
+- `/rcx`: report access and where this chat saves. Check write access from the repo permissions; never write a file to test it.
+- `/rcx load`: the load in section 2.
+- `/rcx load deep`: read all of `me/`, every project's `project.md`, `context.md`, `decisions/`, `log/`, `docs/`, then `memory/`, `inbox-unsorted/`, open handoffs, and only the file lists of `chats/` folders. Stop before your context is full. Report: `RCE deep load: <n> projects · <n> files · ~<n>K tokens · skipped: <what>`.
+- `/rcx sync`: save this whole chat (transcript to `chats/`, plus log, decisions, context). Running it twice adds nothing.
+- `/rcx push`: write a handoff packet to `handoffs/<code>_<Topic>.md` and reply with `/rcx pull <code>`.
+- `/rcx pull <code>`: read that packet in full, recap it, continue.
+- `/rcx off` / `/rcx on`: pause or resume saving in this chat.
 
 Full details of each command are in `skills/rce/reference/`.
 

@@ -16,8 +16,8 @@ This repo holds one person's context. Rules for loading and saving come from the
 | `me/` | About you, preferences, private topics, people, monthly updates |
 | `projects/<name>/` | One folder per project: `project.md`, `context.md`, `decisions/`, `log/`, `docs/`, `chats/` |
 | `memory/` | Knowledge that spans projects, by topic, plus monthly updates |
-| `inbox-unsorted/` | Items no agent could place. `/rce sort` routes them |
-| `handoffs/` | `/rce push` packets and `live/` links |
+| `inbox-unsorted/` | Items no agent could place. `/rcx sort` routes them |
+| `handoffs/` | `/rcx push` packets and `live/` links |
 | `public/` | `fields.yaml`: what may go into a public profile |
 
 ## Small files
