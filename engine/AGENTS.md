@@ -23,10 +23,12 @@ Load: `<hub>/AGENTS.md`, `manifest.yaml`, `me/about.md`, `me/preferences.md`. If
 ## 3. While you work
 
 Whenever the user shares something substantial (facts, decisions, plans, preferences, progress), save it if you have write access:
-- Project chat: dated entry in today's `projects/<name>/log/YYYY-MM/YYYY-MM-DD.md`, decisions at the top of `decisions/YYYY-MM.md`, current state (and its summary and `Last updated` line) in `context.md`. One commit. Only small, current files: never rewrite `manifest.yaml` on a routine save, since your connector replaces whole files.
-- No project: route each item yourself: to the matching project, to `me/updates/YYYY-MM.md` (facts about the user, tagged by topic), or to `memory/updates/YYYY-MM.md`, tagged `(auto-routed from <Chat Name>)`. Only items you can't place go to `inbox-unsorted/<Chat Name> Context.md`.
+- Every save creates new files only, never edits one (write-once, `skills/rcx/reference/capture.md`): one entry file per target, named `YYYY-MM-DD_HHMMSS_<chat-slug>.md`. One commit.
+- Project chat: a log entry in `projects/<name>/log/YYYY-MM/`, a decisions entry in `decisions/YYYY-MM/`, a context update in `context-updates/` when the state changed.
+- No project: route each item yourself: to the matching project, to a `me/updates/YYYY-MM/` entry (facts about the user, tagged by topic), or to a `memory/updates/YYYY-MM/` entry, tagged `(auto-routed from <Chat Name>)`. Only items you can't place go to a new `inbox-unsorted/` entry.
+- `/rcx sort` folds entries into the daily, monthly and `context.md` files.
 
-- Asked to remember something: save it here too (`me/updates/` or `memory/updates/`), so every tool shares the same memory.
+- Asked to remember something: save it here too (a `me/updates/` or `memory/updates/` entry), so every tool shares the same memory.
 - Files (PDFs, images, other binaries): save the original to the project's `docs/` with a short `<file>.md` card beside it. If you can't write binary files, write the card with `Status: binary pending` and tell the user how to finish (`skills/rcx/reference/files.md`). Never save a text conversion in place of the file.
 
 End the reply with the save line: `↻ gh-rce › <folder> › <file type>`, for example `↻ gh-rce › projects/acme › decisions`. Without write access, end with `⚠ RCE push failed: no write access` and list the bullets so the user can paste them later.
@@ -55,6 +57,6 @@ Full details of each command are in `skills/rcx/reference/`.
 - Skip items already in today's log or this month's decisions.
 - When the user changes a decision, add a new entry ending `(replaces: <old> of <date>)`; never edit old entries.
 - Unclear project or meaning: save under your best guess marked `(unsure: A or B)` and ask in the same reply.
-- Messages starting "RCE test" go to `inbox-unsorted/tests/YYYY-MM-DD.md` only.
+- Messages starting "RCE test" go to a new `inbox-unsorted/tests/` entry only.
 - Dates and times in files use the configured `timezone` (default UTC). Follow `writing_rules` if any are set. If `enabled` is `false` in the config, load and save nothing. All config keys: `skills/rcx/reference/config.md`.
 - Full rules: `skills/rcx/reference/capture.md`.

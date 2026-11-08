@@ -12,7 +12,7 @@ Scope: the whole chat, from the first message. `/rcx push today` covers only the
 3. Pick a code: random 1000 to 9999, not used by any file or folder in `handoffs/` or `handoffs/live/`.
 4. In one commit to `<hub>`:
    - `handoffs/<code>_<Topic-With-Hyphens>.md`
-   - if the chat belongs to a project, one line in today's `log/YYYY-MM/YYYY-MM-DD.md` linking the packet
+   - if the chat belongs to a project, a new log entry (`capture.md`) linking the packet
    Commit message: `handoff <code>: <topic>`.
 5. Reply with the code alone in a fenced code block, so the user can copy it:
 

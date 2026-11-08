@@ -5,8 +5,10 @@
 Read from `<owner>/<hub>`:
 1. `AGENTS.md`
 2. `manifest.yaml`
-3. `me/about.md`, `me/preferences.md`, and the newest file in `me/updates/`
-4. If the chat belongs to a project: `projects/<name>/context.md`, then the newest file in `decisions/` (or `decisions.md` if there is none yet), then the last 7 days of `log/YYYY-MM/`.
+3. `me/about.md`, `me/preferences.md`, the newest month file in `me/updates/` and any entry files in `me/updates/` not yet folded
+4. If the chat belongs to a project: `projects/<name>/context.md` plus any newer files in `context-updates/` (they win), then the newest decisions (month file and unfolded entries in `decisions/`, or `decisions.md` if there is none yet), then the last 7 days of `log/YYYY-MM/` (daily files and unfolded entries).
+
+Entry files are the newest saves (`capture.md`, "Write-once saves"). Read them by listing the folder; they sort by time.
 
 In `docs/` folders, read the `.md` cards next to files; open a PDF, image or other binary only when the task needs it (`files.md`).
 Load everything else only when the task needs it: `docs/`, `chats/`, `memory/`, `me/health.md`, `me/wealth.md`, `me/relationships.md`.

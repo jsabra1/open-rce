@@ -6,8 +6,8 @@ This repo holds one person's context. Rules for loading and saving come from the
 
 1. This file
 2. `manifest.yaml`
-3. `me/about.md`, `me/preferences.md`, the newest file in `me/updates/`
-4. For a project chat: `projects/<name>/context.md`, the newest file in `decisions/`, the last 7 days of `log/YYYY-MM/`
+3. `me/about.md`, `me/preferences.md`, the newest file in `me/updates/` and its unfolded entries
+4. For a project chat: `projects/<name>/context.md` and newer `context-updates/`, the newest decisions, the last 7 days of `log/YYYY-MM/` (daily files and entries)
 
 ## Layout
 
@@ -22,7 +22,7 @@ This repo holds one person's context. Rules for loading and saving come from the
 
 ## Small files
 
-Routine saves write only small, current files: daily logs (`log/YYYY-MM/YYYY-MM-DD.md`), monthly decisions (`decisions/YYYY-MM.md`), monthly updates and `context.md`. They never rewrite `manifest.yaml` except to add, rename or retire a project or add a keyword.
+Routine saves are write-once: each save creates new small entry files (for example `log/YYYY-MM/2026-11-14_101500_my-chat.md`) and never edits a file. `/rcx sort` folds them into daily logs, monthly decisions, monthly updates and `context.md`.
 
 ## Rules
 
