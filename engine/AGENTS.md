@@ -54,5 +54,5 @@ Full details of each command are in `skills/rcx/reference/`.
 - When the user changes a decision, add a new entry ending `(replaces: <old> of <date>)`; never edit old entries.
 - Unclear project or meaning: save under your best guess marked `(unsure: A or B)` and ask in the same reply.
 - Messages starting "RCE test" go to `inbox-unsorted/tests/YYYY-MM-DD.md` only.
-- Dates and times in files use the configured `timezone` (default UTC). Follow `writing_rules` if any are set.
+- Dates and times in files use the configured `timezone` (default UTC). Follow `writing_rules` if any are set. If `enabled` is `false` in the config, load and save nothing. All config keys: `skills/rcx/reference/config.md`.
 - Full rules: `skills/rcx/reference/capture.md`.

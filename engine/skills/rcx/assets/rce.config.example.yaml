@@ -2,20 +2,29 @@
 # /rcx setup fills it in for you. Tools find the hub by searching your repos
 # for this file; a pointer with just owner and hub skips that search.
 # No secrets here: access comes from each tool's GitHub connector or gh login.
+# Every key is documented in skills/rcx/reference/config.md.
+
+schema_version: 3                  # config format; see config.md for upgrades
 
 owner: your-github-username        # GitHub account that owns your hub
 hub: my-rce-hub                    # private repo made from assets/hub-template/
 user_name: Alex                    # what the AI calls you in rules and saves
 timezone: UTC                      # all dates, times and file names in the hub
 
+# Master switch. false pauses RCE in every tool on its next read: nothing is
+# loaded or saved until it is true again. /rcx off pauses one chat only.
+enabled: true
+
+# Which rules to follow. "bundled" uses the copy shipped with the plugin.
+# "stable" or "latest" read the rules from rules_repo: stable = the newest
+# release tag, latest = the main branch. A tag such as "v3.0.0" pins it.
+rules: bundled
+rules_repo: ""                     # for example jsabra1/open-rce
+
 # Optional: a generated public profile (leave empty to skip)
 profile: ""                        # for example my-public-profile
 
-# Optional: where the current rules live on GitHub. Leave empty to use only
-# the local copy in skills/rcx/reference/.
-rules_repo: ""                     # for example your-github-username/open-rce
-
-# Files in me/ that never go into the profile or any public output
+# Files and folders that never go into the profile or any public output
 private_files:
   - me/health.md
   - me/wealth.md
@@ -26,5 +35,26 @@ private_files:
 writing_rules: []
 #  - American English
 #  - No em dashes
+
+# Optional: chats that recur (a daily check-in, a voice chat). Chats whose
+# title starts with one of these save a transcript checkpoint every session.
+chat_patterns: []
+#  - prefix: "VC_"
+#    note: voice chats
+
+# Optional modules, off by default (folders under modules/ in the hub)
+modules: []
+#  - health-checkins
+#  - voice-scratchpad
+
+# Optional add-on repos: private repos outside the hub for bigger pieces of
+# context. Each loads only on its own command and follows its own AGENTS.md.
+addons: []
+#  - name: mentor
+#    repo: my-mentor-notes          # private repo, same owner
+#    command: mentor                # /rcx mentor loads it
+#    instructions: AGENTS.md        # the add-on's own rules, followed while loaded
+#    saves_to: log/                 # saves from that chat stay in the add-on
+#    load_deep: false               # /rcx load deep skips it
 
 transcript_split_chars: 500000

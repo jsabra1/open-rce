@@ -41,7 +41,7 @@ If you can read but not write, say so: RCE will load context but saves won't lan
 Read the hub's root listing first. If it already has `AGENTS.md` and `manifest.yaml` (made from the template), skip item 1, and in item 3 write only `rce.config.yaml` (commit message `Add RCE config`).
 
 1. List every file under `assets/hub-template/` (including `.gitkeep` files) and read each one.
-2. Read `assets/rce.config.example.yaml` and fill in `owner`, `hub`, `user_name`, `timezone`. Leave the optional keys as they are.
+2. Read `assets/rce.config.example.yaml` and fill in `owner`, `hub`, `user_name`, `timezone`. Keep `schema_version: 3`. Leave the optional keys as they are (see `config.md`).
 3. Write everything to the hub in one commit, message `Start RCE hub`:
    - every `hub-template/` file at the same path without the `assets/hub-template/` prefix (its `README.md` replaces any starter README)
    - the filled config as `rce.config.yaml` at the hub root

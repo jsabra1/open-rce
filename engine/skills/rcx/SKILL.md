@@ -30,6 +30,11 @@ Together they name:
 | `rules_repo` | Optional GitHub repo holding newer rules |
 | `private_files` | Files that never go into the profile or any public output |
 | `writing_rules` | Optional house style for everything written to the hub |
+| `enabled`, `rules`, `schema_version`, `chat_patterns`, `modules`, `addons` | See `reference/config.md` |
+
+Every key, its default and how to upgrade an older config are in `reference/config.md`. Read it when a key you need is missing or `schema_version` is not `3`.
+
+If `enabled` is `false`, stop here: load nothing, save nothing, and say once `RCE: paused in rce.config.yaml`.
 
 If no hub is found, offer `/rcx setup` (`reference/setup.md`) and save nothing until it's done. Do not guess an owner or hub. If the hub has no `rce.config.yaml`, use the defaults in `assets/rce.config.example.yaml` and say so once.
 
@@ -47,10 +52,11 @@ Before your first RCE action in a chat (load, save or any `/rcx` command), read 
 | `/rcx sort` | `inbox.md` |
 | Files (PDFs, images, other binaries), `/rcx files` | `files.md` |
 | `/rcx setup`, or no hub found | `setup.md` |
+| Config keys, defaults, upgrades | `config.md` |
 
 How to read them:
 - Read the local copy in `reference/` next to this file.
-- If `rules_repo` is set, read the same files from that repo instead (branch `main`, folder `engine/skills/rcx/reference/`) with the GitHub connector, or `git`/`gh` if that is what this session has. The GitHub copy wins.
+- If `rules` is `stable`, `latest` or a tag, read the same files from `rules_repo` instead (folder `engine/skills/rcx/reference/`): `latest` = branch `main`, `stable` = the newest release tag, a tag = that tag. Use the GitHub connector, or `git`/`gh` if that is what this session has. The GitHub copy wins. With no `rules` key, a set `rules_repo` means `latest`.
 - Read each file once per chat and reuse it.
 
 ## If the rules or the hub can't be read (fallback)

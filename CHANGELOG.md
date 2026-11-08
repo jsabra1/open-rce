@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased (3.0.0, branch v3-migration)
+
+- A1 One engine, config: everything personal lives in the hub's `rce.config.yaml`. New keys: `schema_version` (3), `enabled` (pause every tool), `rules` (bundled, stable, latest or a tag), `chat_patterns`, `modules`, `addons`. New `reference/config.md` documents every key, its default and how to upgrade an older config. A config without `schema_version` keeps working; every new key defaults to today's behavior.
+
 ## 2.3.2 (2026-11-03)
 
 - Plugin icon (`engine/.claude-plugin/icon.png`, 1024 px) for the directory listing.
