@@ -26,12 +26,14 @@ rules_repo: jsabra1/open-rce      # public repo with the rules; releases are tag
 # Optional: a generated public profile (leave empty to skip)
 profile: ""                        # for example my-public-profile
 
-# Files and folders that never go into the profile or any public output
-private_files:
-  - me/health.md
-  - me/wealth.md
-  - me/relationships.md
-  - me/updates/
+# Extra files and folders that never go into the profile or any public output.
+# Always private, even if not listed: me/health.md, me/wealth.md,
+# me/relationships.md, me/updates/, every add-on repo, every private module.
+private_files: []
+#  - projects/acme/docs/contracts/
+
+# Make one of the always-private defaults shareable (rarely needed)
+not_private: []
 
 # Optional: house style for everything the AI writes into the hub
 writing_rules: []

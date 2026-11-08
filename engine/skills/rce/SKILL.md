@@ -33,7 +33,7 @@ Together they name:
 | `timezone` | Timezone for every date, time and file name. Written `<tz>` in templates |
 | `profile` | Optional generated public profile repo. Written `<profile>` in the rules |
 | `rules_repo` | Optional GitHub repo holding newer rules |
-| `private_files` | Files that never go into the profile or any public output |
+| `private_files` | Extra private files, added to the always-private defaults |
 | `writing_rules` | Optional house style for everything written to the hub |
 | `enabled`, `rules`, `schema_version`, `chat_patterns`, `modules`, `addons` | See `reference/config.md` |
 
@@ -112,7 +112,8 @@ RCE: ON · open-rce 3.0.0-dev · hub <owner>/<hub> · saves to projects/acme · 
 - Repo names come only from Step 0 and the config, never from memory or past chats.
 - The owner is always `owner` from the config or the hub found in Step 0. Use identity tools such as `get_me` only for the Step 0 search and for setup, never to change an owner that's already set.
 - Never write passwords, API keys or tokens. Write `[secret omitted]`.
-- Never copy anything in `private_files` into `<profile>` or any public output.
+- Never copy private content into `<profile>` or any public output: `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/`, add-on repos, private modules and anything in `private_files` (`reference/config.md`, "Privacy defaults"). Not even summarized.
+- Scan every write for secrets (`capture.md`, rule 9).
 - Call the user `user_name` from the config. Never write names or facts from the tool's own memory or other sources into the hub; save only what the user shares in the chat or the hub already holds.
 - Never re-add content that is missing from the hub; someone removed it on purpose.
 - Never create or delete a repo without the user's explicit yes.

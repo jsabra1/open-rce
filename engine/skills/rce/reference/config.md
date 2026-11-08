@@ -15,14 +15,19 @@ Everything personal lives in the hub's `rce.config.yaml`, never in the rules. Th
 | `rules` | `bundled`; `latest` if `rules_repo` is set (the pre-3 behavior). Setup writes `stable` | `stable`: the newest release of `rules_repo` (recommended: fixes arrive without a reinstall). `latest`: its `main` branch. A tag such as `v3.0.0`: that release only. `bundled`: the copy shipped with the plugin. Unreadable `rules_repo` falls back to bundled for that chat | Step 1 |
 | `rules_repo` | empty; setup writes `jsabra1/open-rce` | Public repo holding the rules. Needed for anything but `bundled` | Step 1 |
 | `profile` | empty | Optional generated public profile repo | `capture.md` |
-| `private_files` | the four below | Files and folders never copied into `<profile>` or any public output | Hard rules, `capture.md` |
+| `private_files` | empty | Extra files and folders never copied into `<profile>` or any public output. Always added to the defaults below | Hard rules, `capture.md` |
+| `not_private` | empty | Defaults the user has chosen to make shareable. The only way to lift a default | Hard rules |
 | `writing_rules` | empty | House style for everything written to the hub | Every save |
 | `chat_patterns` | empty | Title prefixes of recurring chats; those chats save a transcript checkpoint every session | `capture.md` |
 | `modules` | empty | Optional modules turned on, by folder name under `modules/` | `load.md` |
 | `addons` | empty | Add-on repos (below) | `load.md`, `capture.md` |
 | `transcript_split_chars` | `500000` | Split long transcripts into parts of this size | `sync.md` |
 
-Default `private_files`: `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/`. A user's list replaces the defaults; it never adds to them silently.
+## Privacy defaults
+
+Always private, whatever the config says, unless named in `not_private`: `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/`, every add-on repo, and every module marked `private: true` (`modules.md`). `private_files` adds to these; it never replaces them. An older config whose `private_files` lists the four defaults means the same thing.
+
+**Public output** is anything outside the user's private repos: the profile repo, any public repo, issues and pull requests in public repos, and anything shared as a page, doc or message. Private content never goes there, not even summarized or paraphrased.
 
 ## Add-on repos
 

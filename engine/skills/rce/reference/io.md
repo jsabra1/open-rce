@@ -42,7 +42,8 @@ In this mode, only create new files. Never update a file you could not read in f
 - **Conflicts.** If a write is rejected because the file changed since you read it, read it again and add only your new lines. Never drop or change lines you didn't write, and never force-push.
 - **Text only, unless the route can carry bytes.** Binaries follow `files.md`.
 - **Private check.** Before the first write to a repo in a chat, confirm it is private (`SKILL.md`, Step 0). Never write to a public repo, except the profile repo when the config names it.
-- **Secrets.** Replace passwords, API keys and tokens with `[secret omitted]` before any write.
+- **Secrets.** Run the secret scan in `capture.md` (rule 9) on every write, on every route, including transcripts and handoff packets.
+- **Private content stays private.** Never write anything from the always-private set (`config.md`, "Privacy defaults") to the profile repo, a public repo or any public output.
 
 ## 5. When a write fails
 

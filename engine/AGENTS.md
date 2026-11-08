@@ -47,7 +47,8 @@ Full details of each command are in `skills/rce/reference/`.
 
 ## 5. Rules
 
-- Never copy anything in `private_files` (by default `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/`) into public output.
+- Never copy private content into public output (the profile, public repos and issues, shared pages): `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/`, add-on repos, private modules, and anything in `private_files`. Not even summarized. Details: `skills/rce/reference/config.md`, "Privacy defaults".
+- Before every write, mask secrets as `[secret omitted]` (list in `skills/rce/reference/capture.md`, rule 9).
 - Never write secrets to any file.
 - Call the user `user_name` from the config. Never write names or facts from your own memory or other sources into the hub; save only what the user shares in the chat or the hub already holds.
 - Never create or delete repos without the user's yes.
