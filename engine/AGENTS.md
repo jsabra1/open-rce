@@ -35,6 +35,7 @@ End the reply with the save line: `↻ gh-rce › <folder> › <file type>`, for
 
 ## 4. Commands
 
+- `/rce doctor`: self-test, pass or fail per check (`skills/rce/reference/doctor.md`). `/rce import`: bring in what you already know about the user, reviewed first (`skills/rce/reference/import.md`).
 - `/rce <add-on command>`, `/rce addon add <repo>`: add-on repos (`skills/rce/reference/addons.md`). Modules turned on in the config: `skills/rce/reference/modules.md`.
 
 - `/rce`: report access and where this chat saves. Check write access from the repo permissions; never write a file to test it.

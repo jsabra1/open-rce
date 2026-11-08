@@ -1,6 +1,6 @@
 ---
 name: rce
-description: "Recursive Context Engine (RCE): memory management and shared context across AI agents. Stores the user's memories, context and files (PDFs, images and other binaries) in a private GitHub repo they own, so Claude and other tools load and save the same memory. Use in any conversation where the user shares facts, decisions, plans, progress or preferences about themselves or their work, asks Claude to remember something, or shares a file to keep; at the start of any chat that needs the user's context; and for any /rce command, typed or spoken (/rce, /rce setup, /rce sync, /rce push, /rce pull, /rce load, /rce load deep, /rce live, /rce off, /rce on, /rce sort, /rce files, /rce retire)."
+description: "Recursive Context Engine (RCE): memory management and shared context across AI agents. Stores the user's memories, context and files (PDFs, images and other binaries) in a private GitHub repo they own, so Claude and other tools load and save the same memory. Use in any conversation where the user shares facts, decisions, plans, progress or preferences about themselves or their work, asks Claude to remember something, or shares a file to keep; at the start of any chat that needs the user's context; and for any /rce command, typed or spoken (/rce, /rce setup, /rce doctor, /rce import, /rce sync, /rce push, /rce pull, /rce load, /rce load deep, /rce live, /rce off, /rce on, /rce sort, /rce files, /rce retire)."
 ---
 
 # RCE: Recursive Context Engine
@@ -58,6 +58,8 @@ Before your first RCE action in a chat (load, save or any `/rce` command), read 
 | `/rce sort` | `inbox.md` |
 | Files (PDFs, images, other binaries), `/rce files` | `files.md` |
 | `/rce setup`, or no hub found | `setup.md` |
+| `/rce doctor` | `doctor.md` |
+| `/rce import` | `import.md` |
 | Config keys, defaults, upgrades | `config.md` |
 | Modules turned on in the config | `modules.md`, then each module's `MODULE.md` |
 | Add-ons, `/rce <add-on command>`, `/rce addon add` | `addons.md` |
@@ -101,6 +103,8 @@ End every reply that saved something with the save line, for example `↻ gh-rce
 |---|---|---|
 | `/rce` | Status: on or off, where this chat saves, access OK, last save. Check write access from permissions as `io.md` says; never write a file to test it. If nothing is saved yet, offer `/rce sync` | `capture.md` |
 | `/rce setup` | Create the private hub and connect this tool | `setup.md` |
+| `/rce doctor` | Self-test: hub, rules, read, write, voice read, handoff, privacy, add-ons; pass or fail each | `doctor.md` |
+| `/rce import` | Bring in what this assistant already knows (its memory, optionally past chats), reviewed first | `import.md` |
 | `/rce sync` | Save this whole chat into the hub | `sync.md` |
 | `/rce push` | Handoff packet + 4-digit code | `push-pull.md` |
 | `/rce pull <code>` | Load a handoff packet | `push-pull.md` |

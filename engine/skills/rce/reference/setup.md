@@ -14,8 +14,14 @@ Ground rules:
 2. Find the user's GitHub username: `gh api user -q .login`, or the connector's "get me" tool. Show it and ask the user to confirm.
 3. Check whether you can create a repo and write files (the connector's tool list or permissions; write nothing yet).
 
-If you can't reach GitHub at all, stop: tell the user to connect GitHub with write access in this tool, then run `/rce setup` again.
-If you can read but not write, say so: RCE will load context but saves won't land. Offer to continue; the user then creates the hub by hand in step 3.
+4. Name what you found, in one line: `GitHub: <route> · read ✓/✗ · write ✓/✗ · create repos ✓/✗`.
+
+If something is missing, walk the user through the fix for this tool before going on, one step at a time, and check again after each:
+- **No GitHub at all, Claude.ai or Cowork:** Settings → Connectors → add GitHub, sign in, and allow access to all repos or at least the hub. Then start a new chat (connectors load when a chat starts) and run `/rce setup` again.
+- **No GitHub, Claude Code:** run `gh auth login` in a terminal, then `/rce setup` again.
+- **Other assistants:** connect GitHub in their connector or integration settings, with write access.
+- **Read but no write:** the connector's GitHub App needs write access (GitHub → Settings → Applications → the app → Repository permissions: Contents, read and write). Until then RCE loads context but saves come back as bullets to paste.
+- **Can't create repos:** normal for chat connectors; step 3 gives the user a one-click link instead.
 
 ## Step 2: ask three questions (one message)
 
@@ -69,7 +75,9 @@ hub: <hub>
 
 ## Step 7: wrap up
 
-Tell the user, in a few lines:
+1. Run `/rce doctor` (`doctor.md`) and show its report.
+2. Offer `/rce import` (`import.md`): "Want me to bring in what I already know about you, so your hub doesn't start empty?" With a yes, run it now.
+3. Tell the user, in a few lines:
 - the hub link, and that it is private
-- the commands to try: `/rce`, `/rce load`, `/rce push`, `/rce sync`, `/rce files`
+- the commands to try: `/rce`, `/rce load`, `/rce push`, `/rce sync`, `/rce files`, `/rce doctor`
 - to install the plugin in each other Claude app they use (installs on claude.ai also reach Claude Code), and in other tools to follow `BOOTSTRAP.md` in `jsabra1/open-rce`; both find the existing hub and skip creating one

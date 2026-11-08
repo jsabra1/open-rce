@@ -15,6 +15,8 @@
 - F2 Write-once handoffs: packets are never edited; pickups, decisions and done are `handoffs/<code>_update-...md` files; `/rce pull` reads the packet plus its updates and needs only the code.
 - F3 Rolling transcript checkpoints (save rule 13): each saving turn, every ~20 turns, and every session in recurring chats (`chat_patterns`) writes a new checkpoint file, so compaction can't lose turns. `/rce sync` writes a checkpoint too. Memory mirror (rule 11, "remember requests") was already in open-rce.
 - F4 and A7 Claude Code session backup ships in the plugin: `tools/cc-transcript-backup.py` runs from the plugin's own `hooks/hooks.json` on `SessionEnd` and `PreCompact` (no hand edits to `settings.json`). It saves the user's and Claude's text, secrets masked, to the hub's `inbox-unsorted/chats/claude-code/`; hub from the pointer; writes only to a private hub; off with `transcript_backup: false`; never blocks a session.
+- A6 and U1 Setup and self-test: `/rce setup` names the GitHub route it found (read, write, create repos) and walks the user through fixing a missing or read-only connector per tool; it ends with `/rce doctor` and an offer to import. New `/rce doctor` (`reference/doctor.md`): eight checks (hub and config, rules version, read, write, voice read via commit, handoff round trip, privacy scan, add-ons and modules), pass, fail or skip each, with fixes.
+- U3 `/rce import` (`reference/import.md`): writes out what the assistant already holds about the user (built-in memory, instructions), the user reviews each item, kept items are saved write-once and routed, private ones marked. Optional past chats via the assistant's past-chat search or an account data export processed in Claude Code (the export is never committed).
 
 ## 2.3.2 (2026-11-03)
 
