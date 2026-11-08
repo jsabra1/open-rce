@@ -1,6 +1,6 @@
 ---
 name: rce
-description: "Recursive Context Engine (RCE): memory management and shared context across AI agents. Stores the user's memories, context and files (PDFs, images and other binaries) in a private GitHub repo they own, so Claude and other tools load and save the same memory. Use in any conversation where the user shares facts, decisions, plans, progress or preferences about themselves or their work, asks Claude to remember something, or shares a file to keep; at the start of any chat that needs the user's context; and for any /rce command (/rce, /rce setup, /rce sync, /rce push, /rce pull, /rce load, /rce load deep, /rce live, /rce off, /rce on, /rce sort, /rce files, /rce retire)."
+description: "Recursive Context Engine (RCE): memory management and shared context across AI agents. Stores the user's memories, context and files (PDFs, images and other binaries) in a private GitHub repo they own, so Claude and other tools load and save the same memory. Use in any conversation where the user shares facts, decisions, plans, progress or preferences about themselves or their work, asks Claude to remember something, or shares a file to keep; at the start of any chat that needs the user's context; and for any /rce command, typed or spoken (/rce, /rce setup, /rce sync, /rce push, /rce pull, /rce load, /rce load deep, /rce live, /rce off, /rce on, /rce sort, /rce files, /rce retire)."
 ---
 
 # RCE: Recursive Context Engine
@@ -68,6 +68,13 @@ How to read them:
 - If `rules_repo` can't be read, or a read returns no text (voice mode, `io.md` section 3), use the bundled copy for the rest of the chat and say once `RCE: using bundled rules (<version>)`. Never mix files from two versions in one chat.
 - The status line shows the version actually in use: the tag, `main`, or `bundled <version>`.
 - Read each file once per chat and reuse it.
+
+## Voice mode
+
+Sign: a file read says it downloaded but shows no text (`[non-text content: resource]` or a blank attachment). Don't retry; for the rest of the chat:
+- Rules: use the bundled `reference/` next to this file and say once `RCE: voice mode, using bundled rules (<version>)`.
+- Hub files: read them from their commits, and only create new files (`io.md`, section 3). Saves are write-once anyway (`capture.md`), so they land in the right place.
+- Handoffs: a spoken `/rce pull <code>` works: list `handoffs/`, read the packet and its update files from their commits (`push-pull.md`).
 
 ## If the rules or the hub can't be read (fallback)
 

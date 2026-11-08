@@ -11,6 +11,9 @@
 - A9 Privacy by default: `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/`, add-on repos and private modules are always private; `private_files` only adds to them, and only `not_private` can lift one. "Public output" is defined (profile, public repos and issues, shared pages and docs). The secret scan names what to mask (tokens by prefix, private keys, passwords, card and bank numbers, one-time codes) and runs on every write, transcripts and handoffs included.
 - A8 Modules: optional, self-contained uses of RCE, off unless listed under `modules:` (`reference/modules.md`, `MODULE.md` format with triggers, privacy and save rules). Ships `health-checkins` (private, write-once, voice-friendly).
 - F5 and U2 Add-on repos: private repos outside the hub, each loaded by its own `/rce <command>`, following the repo's own `AGENTS.md`; saves stay inside the add-on; no access means stop, never fall back to the hub (`reference/addons.md`). `/rce addon add <repo>` checks the repo is private and readable, refuses built-in command names, and writes the config entry with a yes; `/rce addon remove`.
+- F1 Voice mode: when reads return no text, RCE uses the bundled rules, reads hub files from their commits and writes new files only; spoken `/rce` commands, including `/rce pull <code>`, work.
+- F2 Write-once handoffs: packets are never edited; pickups, decisions and done are `handoffs/<code>_update-...md` files; `/rce pull` reads the packet plus its updates and needs only the code.
+- F3 Rolling transcript checkpoints (save rule 13): each saving turn, every ~20 turns, and every session in recurring chats (`chat_patterns`) writes a new checkpoint file, so compaction can't lose turns. `/rce sync` writes a checkpoint too. Memory mirror (rule 11, "remember requests") was already in open-rce.
 
 ## 2.3.2 (2026-11-03)
 

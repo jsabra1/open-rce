@@ -42,7 +42,12 @@ Hubs from before write-once (one daily or monthly file edited in place) keep wor
 10. **Test messages.** Anything that starts with "RCE test" goes to a new `inbox-unsorted/tests/<entry>`, never to project files, `me/` or `memory/`.
 11. **Remember requests.** When the user asks you to remember something, or you would save it to your own tool's memory, save it to the hub too, so every tool shares it: facts about the user and how they like to work go to a `me/updates/YYYY-MM/` entry, general knowledge to a `memory/updates/YYYY-MM/` entry. The hub is the shared memory; a tool's own memory is only a local copy.
 12. **Files (PDFs, images, other binaries).** Follow `files.md`. Never save a text conversion in place of the original file.
-13. **File headers.** If a file has a YAML header (between `---` lines), wrap every text value in double quotes (`description: "Name: Role"`). An unquoted colon breaks the header on GitHub.
+13. **Rolling transcript checkpoints.** Save the chat's own words as you go, before the tool compacts them. A checkpoint is a new file per saving turn: `chats/<chat-start-date>_<chat-slug>/YYYY-MM-DD_HHMMSS.md` in the chat's project folder (or `inbox-unsorted/chats/`), holding the turns since the last checkpoint, verbatim as far as you can see them, in the transcript format from `sync.md`. Never edit an earlier checkpoint. Write one:
+    - at the end of every turn that saves something, with only the turns since the last checkpoint;
+    - in any chat, once about 20 turns have passed without one, even if nothing else was saved;
+    - always in recurring chats (titles matching `chat_patterns` in the config), at least once per session.
+   The first line of each file is `<!-- checkpoint YYYY-MM-DD HH:MM <tz>, turns <first>-<last> -->`; read the newest checkpoint's marker first (list the folder) so no turn is written twice. If earlier turns are no longer visible (compacted), write `[turns before <date> compacted before checkpoint]` and add `(transcript gap)` to the save line. Secrets rule 9 applies. Claude Code also backs up its sessions with the plugin's hook (`tools/README.md`).
+14. **File headers.** If a file has a YAML header (between `---` lines), wrap every text value in double quotes (`description: "Name: Role"`). An unquoted colon breaks the header on GitHub.
 
 ## Where it goes (repo `<hub>`)
 
