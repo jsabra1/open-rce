@@ -14,6 +14,7 @@
 - F1 Voice mode: when reads return no text, RCE uses the bundled rules, reads hub files from their commits and writes new files only; spoken `/rce` commands, including `/rce pull <code>`, work.
 - F2 Write-once handoffs: packets are never edited; pickups, decisions and done are `handoffs/<code>_update-...md` files; `/rce pull` reads the packet plus its updates and needs only the code.
 - F3 Rolling transcript checkpoints (save rule 13): each saving turn, every ~20 turns, and every session in recurring chats (`chat_patterns`) writes a new checkpoint file, so compaction can't lose turns. `/rce sync` writes a checkpoint too. Memory mirror (rule 11, "remember requests") was already in open-rce.
+- F4 and A7 Claude Code session backup ships in the plugin: `tools/cc-transcript-backup.py` runs from the plugin's own `hooks/hooks.json` on `SessionEnd` and `PreCompact` (no hand edits to `settings.json`). It saves the user's and Claude's text, secrets masked, to the hub's `inbox-unsorted/chats/claude-code/`; hub from the pointer; writes only to a private hub; off with `transcript_backup: false`; never blocks a session.
 
 ## 2.3.2 (2026-11-03)
 

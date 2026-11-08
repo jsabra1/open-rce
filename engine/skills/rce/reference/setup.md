@@ -56,7 +56,7 @@ owner: <owner>
 hub: <hub>
 ```
 
-- **Claude Code:** write it to `~/.config/rce/rce.config.yaml`.
+- **Claude Code:** write it to `~/.config/rce/rce.config.yaml`. Optional keys there: `local_path` (an existing clone of the hub, for the session backup hook) and `transcript_backup: false` (turns the hook off; see `tools/README.md`). Tell the user once that Claude Code sessions are backed up to the hub on close and before compaction.
 - **Claude.ai and Cowork:** suggest the user add one line to their profile preferences (Settings → Profile): `My RCE hub is <owner>/<hub>.`
 - **Other tools:** the same line in their custom instructions.
 

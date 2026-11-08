@@ -41,6 +41,7 @@ Everything is plain Markdown in your repo. There's no database, no server, and n
 - **Optional rules repo.** If you set `rules_repo` in your config, RCE reads its rule files from that GitHub repo instead of the copies in this plugin.
 - **Session hook (Claude Code and Cowork).** At session start, a hook prints `hooks/session-start.md`, a short reminder that RCE is on. It runs nothing else and makes no network calls.
 - **Local files (Claude Code).** RCE may write `~/.config/rce/rce.config.yaml`, which holds only your GitHub username and hub name. To save a binary, it may clone your hub to a temporary folder and push the file.
+- **Session backups (Claude Code).** On `SessionEnd` and `PreCompact` the plugin runs `tools/cc-transcript-backup.py`, which pushes the session's text (secrets masked) to your private hub, and only if the hub is private. Turn it off with `transcript_backup: false` in `~/.config/rce/rce.config.yaml`. Details: `tools/README.md`.
 
 ## Works with
 
