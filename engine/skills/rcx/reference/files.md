@@ -19,6 +19,8 @@ The hub keeps the original file, not just a description of it. A text version ca
 
 Use the first route this session has:
 
+The routes are the ones in `io.md`; binaries need one that can carry bytes:
+
 1. **A shell with `git` or `gh`** (Claude Code, Cowork on your computer): clone the hub (or use an existing clone), copy the file in, then one commit and push:
    ```bash
    git clone --depth 1 https://github.com/<owner>/<hub>.git /tmp/rce-hub

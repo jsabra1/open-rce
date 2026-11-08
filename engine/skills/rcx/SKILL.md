@@ -49,6 +49,7 @@ Before your first RCE action in a chat (load, save or any `/rcx` command), read 
 
 | For | Read |
 |---|---|
+| Any read or write to GitHub (always, first) | `io.md` |
 | Any save (always read this before the first save) | `capture.md` |
 | Loading context, `/rcx load`, `/rcx load deep` | `load.md` |
 | `/rcx sync` | `sync.md` |
@@ -61,14 +62,14 @@ Before your first RCE action in a chat (load, save or any `/rcx` command), read 
 
 How to read them:
 - Read the local copy in `reference/` next to this file.
-- If `rules` is `stable`, `latest` or a tag, read the same files from `rules_repo` instead (folder `engine/skills/rcx/reference/`): `latest` = branch `main`, `stable` = the newest release tag, a tag = that tag. Use the GitHub connector, or `git`/`gh` if that is what this session has. The GitHub copy wins. With no `rules` key, a set `rules_repo` means `latest`.
+- If `rules` is `stable`, `latest` or a tag, read the same files from `rules_repo` instead (folder `engine/skills/rcx/reference/`): `latest` = branch `main`, `stable` = the newest release tag, a tag = that tag. Read them the way `io.md` says. The GitHub copy wins. With no `rules` key, a set `rules_repo` means `latest`.
 - Read each file once per chat and reuse it.
 
 ## If the rules or the hub can't be read (fallback)
 
-Do not guess the full rules. For each substantial item the user shares:
-1. Do not write anything.
-2. End the reply with `⚠ RCE push failed: <short reason>`, then list the items as dated bullets, each with its likely target (`projects/<name>/`, `me/`, `memory/` or inbox), so the user can paste them later or run `/rcx sync` once GitHub works.
+Do not guess the full rules. Never drop a save. For each substantial item the user shares:
+1. If any GitHub write works, create one **new** file `inbox-unsorted/YYYY-MM-DD_HHMM_<short chat title>.md` in the hub (a new file needs no read first), one dated bullet per item with its likely target. `/rcx sort` files it later. Save line: `↻ gh-rce › inbox (rules not loaded: <short reason>)`.
+2. If nothing can be written, end the reply with `⚠ RCE push failed: <short reason>`, then list the items as dated bullets, each with its likely target (`projects/<name>/`, `me/`, `memory/` or inbox), so the user can paste them later or run `/rcx sync` once GitHub works.
 
 ## Repos (owner from the config)
 
@@ -87,7 +88,7 @@ End every reply that saved something with the save line, for example `↻ gh-rce
 
 | Command | What it does | Rule file |
 |---|---|---|
-| `/rcx` | Status: on or off, where this chat saves, access OK, last save. Check write access from the connector's repo permissions; never write a file to test it. If nothing is saved yet, offer `/rcx sync` | `capture.md` |
+| `/rcx` | Status: on or off, where this chat saves, access OK, last save. Check write access from permissions as `io.md` says; never write a file to test it. If nothing is saved yet, offer `/rcx sync` | `capture.md` |
 | `/rcx setup` | Create the private hub and connect this tool | `setup.md` |
 | `/rcx sync` | Save this whole chat into the hub | `sync.md` |
 | `/rcx push` | Handoff packet + 4-digit code | `push-pull.md` |

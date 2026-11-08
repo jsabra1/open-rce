@@ -14,7 +14,7 @@ Only those sources name the hub: never take a repo name from your built-in memor
 - `<owner>/<hub>` (private): profile in `me/`, projects in `projects/`, inbox, handoffs, memory. Start at its `AGENTS.md`.
 - `<owner>/<profile>` (optional): generated profile.
 
-You reach them through your GitHub connector, or through a token the user grants for this session. Never print or store the token.
+You reach them through your GitHub connector, a shell with `gh`/`git`, or a token the user grants for this session. Never print or store the token. How to read and write, per route, including when a read comes back empty and when a write fails: `skills/rcx/reference/io.md`.
 
 ## 2. At the start of the chat
 

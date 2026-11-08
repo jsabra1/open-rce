@@ -6,7 +6,7 @@ Do not save when the user has typed `/rcx off` in this chat, or the chat is inco
 
 ## Small files only
 
-GitHub connectors can't append: changing one line means uploading the whole file again. So a save only ever writes small, current files:
+Read and write as `io.md` says. GitHub connectors can't append: changing one line means uploading the whole file again. So a save only ever writes small, current files:
 
 | What | File | Rule |
 |---|---|---|
