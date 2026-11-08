@@ -7,6 +7,8 @@ This file holds the full rules for agents that cannot install the `rcx` skill. A
 
 Before anything else, find `owner` and `hub` (from the user's instructions, or `skills/rcx/rce.config.yaml`; otherwise look for the user's private repo with `rce.config.yaml` at its root, starting with `my-rce-hub`), then read `rce.config.yaml` at the root of the hub. Together they name `owner`, `hub`, `user_name`, `timezone`, and optionally `profile`, `private_files` and `writing_rules`. Below, `<owner>/<hub>` means those values. If there is no hub, offer to set one up with `skills/rcx/reference/setup.md`; never guess.
 
+Only those sources name the hub: never take a repo name from your built-in memory, past chats or search results, which can point at a retired repo. Before the first read or write, check the hub is private and its `rce.config.yaml` names the same `owner` and `hub`; if not, stop and ask. Read `schema_version`: if it is missing or below `3`, use the defaults in `skills/rcx/reference/config.md` and offer the upgrade once; never rewrite the config without the user's yes.
+
 ## 1. Repos
 
 - `<owner>/<hub>` (private): profile in `me/`, projects in `projects/`, inbox, handoffs, memory. Start at its `AGENTS.md`.

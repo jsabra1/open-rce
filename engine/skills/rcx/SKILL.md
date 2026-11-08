@@ -5,6 +5,8 @@ description: "Recursive Context Engine (RCE): memory management and shared conte
 
 # RCE: Recursive Context Engine
 
+Engine: open-rce 3.0.0-dev (shown in the `/rcx` status line, so a stale copy is easy to spot).
+
 The user keeps their memory and context in a private GitHub repo (the hub) so any AI tool can load it and save to it: facts and preferences, project logs and decisions, things they ask Claude to remember, and files such as PDFs and images.
 GitHub is the single source of truth. Summaries never replace originals.
 
@@ -16,7 +18,10 @@ Find the config in two parts:
    - a pointer file: `rce.config.yaml` next to this file, then `~/.config/rce/rce.config.yaml` (Claude Code)
    - a line in the user's custom instructions or profile preferences, such as `My RCE hub is <owner>/<hub>`
    - a search: get the signed-in GitHub username (`gh api user -q .login`, or the connector's "get me" tool), check `<username>/my-rce-hub`, then list that user's private repos and check each for `rce.config.yaml` at the root, names containing `rce` or `hub` first. Read the file directly; don't rely on code search, which can miss new repos. One private match: use it and say once `RCE: using hub <owner>/<hub>`. Several: ask which. A public match never counts as a hub.
-2. **Settings.** Read `rce.config.yaml` at the root of the hub. If the pointer file holds more keys than `owner` and `hub`, those win.
+   Only these three sources name the hub. Never take a hub or repo name from the tool's built-in memory, past chats, code search results or an old instruction that names a different repo: those can point at a retired repo.
+2. **Check it before the first read or write.** The hub must be private and hold `rce.config.yaml` at its root whose `owner` and `hub` match what you found. If it is public, stop and say so. If the names differ, or a pointer and the search disagree, stop and ask which is right; save nothing until the user answers.
+3. **Settings.** Read `rce.config.yaml` at the root of the hub. If the pointer file holds more keys than `owner` and `hub`, those win.
+4. **Version.** Read `schema_version`. If it is missing or lower than `3`, keep working with the defaults in `reference/config.md` and offer the upgrade there once per chat; never rewrite the config without a yes. If it is higher than `3`, use the keys you know and say once `RCE: config is newer than these rules; update the plugin`.
 
 Together they name:
 
@@ -96,11 +101,12 @@ End every reply that saved something with the save line, for example `↻ gh-rce
 
 `/rcx` status reply:
 ```
-RCE: ON · saves to <hub>/projects/acme · write access OK · last save 14:02
+RCE: ON · open-rce 3.0.0-dev · hub <owner>/<hub> · saves to projects/acme · write access OK · last save 14:02
 ```
 
 ## Hard rules (always, even before the rules are read)
 
+- Repo names come only from Step 0 and the config, never from memory or past chats.
 - The owner is always `owner` from the config or the hub found in Step 0. Use identity tools such as `get_me` only for the Step 0 search and for setup, never to change an owner that's already set.
 - Never write passwords, API keys or tokens. Write `[secret omitted]`.
 - Never copy anything in `private_files` into `<profile>` or any public output.

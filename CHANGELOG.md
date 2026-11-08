@@ -3,6 +3,7 @@
 ## Unreleased (3.0.0, branch v3-migration)
 
 - A1 One engine, config: everything personal lives in the hub's `rce.config.yaml`. New keys: `schema_version` (3), `enabled` (pause every tool), `rules` (bundled, stable, latest or a tag), `chat_patterns`, `modules`, `addons`. New `reference/config.md` documents every key, its default and how to upgrade an older config. A config without `schema_version` keeps working; every new key defaults to today's behavior.
+- A5 Hub discovery: only a pointer, the user's instructions or a search of the user's own repos name the hub, never built-in memory or past chats. Before the first read or write the hub is checked (private, config names match; otherwise stop and ask). `schema_version` is read every chat; older configs keep working on defaults and get one upgrade offer. The `/rcx` status line shows the engine and version (`open-rce 3.0.0-dev`) and the hub, so a stale engine or wrong hub shows at once.
 
 ## 2.3.2 (2026-11-03)
 

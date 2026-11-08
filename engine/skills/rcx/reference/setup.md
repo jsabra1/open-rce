@@ -63,7 +63,7 @@ hub: <hub>
 ## Step 6: first run
 
 1. Show the status line, checking write access from permissions only (no test write):
-   `RCE: ON · saves to <hub> · write access OK`
+   `RCE: ON · open-rce <version> · hub <owner>/<hub> · write access OK`
 2. Ask the user to share one fact about themselves, for example how they like answers written.
 3. Save it with `capture.md` (read it first): a bullet in `me/updates/YYYY-MM.md`, tagged `[preferences]`, one commit. End the reply with the save line, for example `↻ gh-rce › me › preferences`.
 
