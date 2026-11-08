@@ -62,7 +62,9 @@ Before your first RCE action in a chat (load, save or any `/rce` command), read 
 
 How to read them:
 - Read the local copy in `reference/` next to this file.
-- If `rules` is `stable`, `latest` or a tag, read the same files from `rules_repo` instead (folder `engine/skills/rce/reference/`): `latest` = branch `main`, `stable` = the newest release tag, a tag = that tag. Read them the way `io.md` says. The GitHub copy wins. With no `rules` key, a set `rules_repo` means `latest`.
+- If `rules` is `stable`, `latest` or a tag, read the same files from `rules_repo` instead (folder `engine/skills/rce/reference/`): `latest` = branch `main`; `stable` = the newest release (the connector's latest-release tool, `gh release view --repo <rules_repo> --json tagName`, or the highest `vX.Y.Z` tag); a tag = that tag. Read them at that ref the way `io.md` says. The GitHub copy wins. With no `rules` key, a set `rules_repo` means `latest`.
+- If `rules_repo` can't be read, or a read returns no text (voice mode, `io.md` section 3), use the bundled copy for the rest of the chat and say once `RCE: using bundled rules (<version>)`. Never mix files from two versions in one chat.
+- The status line shows the version actually in use: the tag, `main`, or `bundled <version>`.
 - Read each file once per chat and reuse it.
 
 ## If the rules or the hub can't be read (fallback)

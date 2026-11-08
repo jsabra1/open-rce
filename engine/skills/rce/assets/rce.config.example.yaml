@@ -15,11 +15,13 @@ timezone: UTC                      # all dates, times and file names in the hub
 # loaded or saved until it is true again. /rce off pauses one chat only.
 enabled: true
 
-# Which rules to follow. "bundled" uses the copy shipped with the plugin.
-# "stable" or "latest" read the rules from rules_repo: stable = the newest
-# release tag, latest = the main branch. A tag such as "v3.0.0" pins it.
-rules: bundled
-rules_repo: ""                     # for example jsabra1/open-rce
+# Which rules to follow. "stable" (recommended) reads the newest release of
+# rules_repo, so fixes arrive without reinstalling anything. "latest" reads its
+# main branch (unreleased changes). A tag such as "v3.0.0" pins one release.
+# "bundled" uses only the copy shipped with the plugin. If rules_repo can't be
+# read (voice mode, no access), the bundled copy is used for that chat.
+rules: stable
+rules_repo: jsabra1/open-rce      # public repo with the rules; releases are tagged vX.Y.Z
 
 # Optional: a generated public profile (leave empty to skip)
 profile: ""                        # for example my-public-profile
