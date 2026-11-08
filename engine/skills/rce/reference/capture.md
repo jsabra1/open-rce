@@ -46,7 +46,7 @@ Hubs from before write-once (one daily or monthly file edited in place) keep wor
 
 ## Where it goes (repo `<hub>`)
 
-Every save is routed automatically, item by item. Nobody sorts by hand.
+Every save is routed automatically, item by item. Nobody sorts by hand. A module whose trigger matches the chat routes its own items first (`modules.md`); a loaded add-on keeps its items inside the add-on (`addons.md`).
 
 | Order | Rule | Target |
 |---|---|---|

@@ -35,6 +35,8 @@ End the reply with the save line: `↻ gh-rce › <folder> › <file type>`, for
 
 ## 4. Commands
 
+- `/rce <add-on command>`, `/rce addon add <repo>`: add-on repos (`skills/rce/reference/addons.md`). Modules turned on in the config: `skills/rce/reference/modules.md`.
+
 - `/rce`: report access and where this chat saves. Check write access from the repo permissions; never write a file to test it.
 - `/rce load`: the load in section 2.
 - `/rce load deep`: read all of `me/`, every project's `project.md`, `context.md`, `decisions/`, `log/`, `docs/`, then `memory/`, `inbox-unsorted/`, open handoffs, and only the file lists of `chats/` folders. Stop before your context is full. Report: `RCE deep load: <n> projects · <n> files · ~<n>K tokens · skipped: <what>`.

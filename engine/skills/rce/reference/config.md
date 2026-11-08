@@ -19,8 +19,8 @@ Everything personal lives in the hub's `rce.config.yaml`, never in the rules. Th
 | `not_private` | empty | Defaults the user has chosen to make shareable. The only way to lift a default | Hard rules |
 | `writing_rules` | empty | House style for everything written to the hub | Every save |
 | `chat_patterns` | empty | Title prefixes of recurring chats; those chats save a transcript checkpoint every session | `capture.md` |
-| `modules` | empty | Optional modules turned on, by folder name under `modules/` | `load.md` |
-| `addons` | empty | Add-on repos (below) | `load.md`, `capture.md` |
+| `modules` | empty | Optional modules turned on, by name (`modules.md`). Shipped: `health-checkins` | `modules.md` |
+| `addons` | empty | Add-on repos (below; behavior in `addons.md`) | `addons.md` |
 | `transcript_split_chars` | `500000` | Split long transcripts into parts of this size | `sync.md` |
 
 ## Privacy defaults

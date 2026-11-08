@@ -59,6 +59,8 @@ Before your first RCE action in a chat (load, save or any `/rce` command), read 
 | Files (PDFs, images, other binaries), `/rce files` | `files.md` |
 | `/rce setup`, or no hub found | `setup.md` |
 | Config keys, defaults, upgrades | `config.md` |
+| Modules turned on in the config | `modules.md`, then each module's `MODULE.md` |
+| Add-ons, `/rce <add-on command>`, `/rce addon add` | `addons.md` |
 
 How to read them:
 - Read the local copy in `reference/` next to this file.
@@ -100,6 +102,8 @@ End every reply that saved something with the save line, for example `↻ gh-rce
 | `/rce off` / `/rce on` | Pause or resume saving in this chat | none |
 | `/rce sort` | Route leftover inbox items; fold updates | `inbox.md` |
 | `/rce files` | Finish saving files marked `binary pending` | `files.md` |
+| `/rce <add-on command>` | Load that add-on repo (only add-ons listed in the config) | `addons.md` |
+| `/rce addon add <repo>`, `/rce addon remove <name>` | Add or remove an add-on repo, guided | `addons.md` |
 | `/rce retire <project>` | Set the project's manifest status to `archived`. Delete only on an explicit "delete" | none |
 
 `/rce` status reply:

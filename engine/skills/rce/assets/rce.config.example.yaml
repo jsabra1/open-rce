@@ -46,10 +46,9 @@ chat_patterns: []
 #  - prefix: "VC_"
 #    note: voice chats
 
-# Optional modules, off by default (folders under modules/ in the hub)
+# Optional modules, off by default (see reference/modules.md)
 modules: []
 #  - health-checkins
-#  - voice-scratchpad
 
 # Optional add-on repos: private repos outside the hub for bigger pieces of
 # context. Each loads only on its own command and follows its own AGENTS.md.

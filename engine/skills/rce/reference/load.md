@@ -10,6 +10,8 @@ Read from `<owner>/<hub>`:
 
 Entry files are the newest saves (`capture.md`, "Write-once saves"). Read them by listing the folder; they sort by time.
 
+Modules and add-ons: read `MODULE.md` for each module that is on and whose trigger matches this chat (`modules.md`). Add-on repos load only on their own command (`addons.md`).
+
 In `docs/` folders, read the `.md` cards next to files; open a PDF, image or other binary only when the task needs it (`files.md`).
 Load everything else only when the task needs it: `docs/`, `chats/`, `memory/`, `me/health.md`, `me/wealth.md`, `me/relationships.md`.
 
@@ -28,7 +30,8 @@ For agents that need the full picture. Read in this order:
 4. Every project's `docs/` and `frameworks/`
 5. `memory/`, including `memory/updates/`
 6. `inbox-unsorted/` and open handoff packets in `handoffs/`
-7. Transcripts: list each `chats/` folder (file names carry date and title). Open a full chat only when the user names it.
+7. Modules that are on: their `MODULE.md` and the last 30 days of their data, except private modules (skipped with `/rce load deep public`)
+8. Transcripts: list each `chats/` folder (file names carry date and title). Open a full chat only when the user names it.
 
 Stop before your context window is full. Then report in one block:
 
