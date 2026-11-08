@@ -38,6 +38,7 @@ Before your first RCE action in a chat (load, save or any `/rce` command), read 
 How to read them:
 - Read the local copy in `reference/` next to this file.
 - If `rules` is `stable`, `latest` or a tag, read the same files from `rules_repo` instead (folder `engine/skills/rce/reference/`): `latest` = branch `main`; `stable` = the newest release (the connector's latest-release tool, `gh release view --repo <rules_repo> --json tagName`, or the highest `vX.Y.Z` tag); a tag = that tag. Read them at that ref the way `io.md` says. The GitHub copy wins. With no `rules` key, a set `rules_repo` means `latest`.
+- If the release found is older than this config's `schema_version` needs (a `v1.x` or `v2.x` tag for `schema_version: 3`), it predates these rules: use the bundled copy and say once `RCE: newest release is older than this setup; using bundled rules`.
 - If `rules_repo` can't be read, or a read returns no text (voice mode, `io.md` section 3), use the bundled copy for the rest of the chat and say once `RCE: using bundled rules (<version>)`. Never mix files from two versions in one chat.
 - The status line shows the version actually in use: the tag, `main`, or `bundled <version>`.
 - Read each file once per chat and reuse it.
@@ -74,14 +75,14 @@ Commands also work typed without the slash (`rce push`) and spoken.
 
 | Command | What it does | Rule file |
 |---|---|---|
-| `/rce` | Status: on or off, where this chat saves, access OK, last save. Check write access from permissions as `io.md` says; never write a file to test it. If nothing is saved yet, offer `/rce sync` | `capture.md` |
+| `/rce` | Status: on or off, where this chat saves, access OK, last save. Check write access from permissions as `io.md` says; never write a file to test it. If nothing is saved yet, offer `/rce sync` | `start.md`, `io.md` |
 | `/rce setup` | Create the private hub and connect this tool | `setup.md` |
 | `/rce doctor` | Self-test: hub, rules, read, write, voice read, handoff, privacy, add-ons; pass or fail each | `doctor.md` |
 | `/rce import` | Bring in what this assistant already knows (its memory, optionally past chats), reviewed first | `import.md` |
 | `/rce sync` | Save this whole chat into the hub | `sync.md` |
 | `/rce push` | Handoff packet + 4-digit code | `push-pull.md` |
 | `/rce pull <code>` | Load a handoff packet | `push-pull.md` |
-| `/rce load` / `/rce load deep` | Load context / the whole hub | `load.md` |
+| `/rce load` / `/rce load deep` / `/rce load deep public` | Load context / the whole hub / the whole hub without private files | `load.md` |
 | `/rce live`, `/rce live <code>`, `/rce live off`, `/rce live leave` | Live link between chats | `live.md` |
 | `/rce off` / `/rce on` | Pause or resume saving in this chat | none |
 | `/rce sort` | Route leftover inbox items; fold updates | `inbox.md` |
@@ -100,7 +101,7 @@ RCE: ON · open-rce 3.0.0-dev · hub <owner>/<hub> · saves to projects/acme · 
 - Repo names come only from Step 0 and the config, never from memory or past chats.
 - The owner is always `owner` from the config or the hub found in Step 0. Use identity tools such as `get_me` only for the Step 0 search and for setup, never to change an owner that's already set.
 - Never write passwords, API keys or tokens. Write `[secret omitted]`.
-- Never copy private content into `<profile>` or any public output: `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/`, add-on repos, private modules and anything in `private_files` (`reference/config.md`, "Privacy defaults"). Not even summarized.
+- Never copy private content into `<profile>` or any public output: `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/`, `me/people/`, `me/docs/`, add-on repos, private modules and anything in `private_files` (`reference/config.md`, "Privacy defaults"). Not even summarized.
 - Scan every write for secrets (`capture.md`, rule 9).
 - Call the user `user_name` from the config. Never write names or facts from the tool's own memory or other sources into the hub; save only what the user shares in the chat or the hub already holds.
 - Never re-add content that is missing from the hub; someone removed it on purpose.

@@ -2,7 +2,7 @@
   "name": "recursive-context-engine",
   "displayName": "Recursive Context Engine",
   "icon": ".claude-plugin/icon.png",
-  "version": "2.3.2",
+  "version": "3.0.0-dev",
   "description": "Memory management and shared context across AI agents. Claude and other tools load and save your memories, project context and files (PDFs, images and other binaries) in a private GitHub repo you own.",
   "author": {
     "name": "jsabra1",

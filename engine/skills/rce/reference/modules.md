@@ -16,7 +16,7 @@ A module is an optional, self-contained piece of RCE for one recurring use, such
 ---
 name: "health-checkins"
 description: "Daily health check-ins: one short entry per day"
-triggers: ["chat title starts with VC_Health", "user says check-in"]
+triggers: ["chat title matches a chat_patterns entry with module: health-checkins", "user says check-in"]
 private: true
 saves_to: "modules/health-checkins/"
 ---

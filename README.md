@@ -9,7 +9,7 @@ RCE is memory management and shared context across AI agents: every AI tool you 
 - **Self-test.** `/rce doctor` checks every part and says what to fix.
 - **Claude's memories, in your repo.** When you ask Claude to remember something, it's saved to the hub, so every tool shares it.
 - **Files too.** PDFs, images and other binaries are kept as the original file, with a short card beside each one. Tools that can only write text leave a `binary pending` card, and `/rce files` finishes the upload from Claude Code.
-- **Small, safe saves.** Daily log files, monthly decision files and a short `context.md` per project. Nothing is overwritten or deleted.
+- **Safe saves.** Each save is a new small file; `/rce sort` folds them into daily logs, monthly decisions and a short `context.md` per project. Nothing is overwritten, and nothing is lost: folded files stay in git history.
 - **Handoffs.** `/rce push` turns a chat into a packet with a 4-digit code; `/rce pull <code>` continues it in another tool.
 
 > **You need a GitHub connector that can write.** RCE saves by writing files to your hub, so every tool needs a GitHub connection with **write** access to it. It doesn't need to create repos: if it can't, the AI asks you to create one empty private repo by hand, which takes a minute.

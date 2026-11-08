@@ -1,6 +1,6 @@
 # Self-test (`/rce doctor`)
 
-Checks that RCE works in this tool, against the user's real hub, and reports pass or fail for each check. Run it after setup, after installing RCE in a new tool, and after any update. It writes two small test files and removes neither: they are clearly named, and `/rce sort` clears them.
+Checks that RCE works in this tool, against the user's real hub, and reports pass or fail for each check. Run it after setup, after installing RCE in a new tool, and after any update. It writes two small test files, clearly named; `/rce sort` clears them the next day (`inbox.md`, step 6).
 
 Read `io.md` first; every check uses the route it picks.
 

@@ -26,6 +26,8 @@ Never change these on a routine save (only `/rce sort`, or the user asking, chan
 - `manifest.yaml`. New projects and keywords are written as entry files and added to the manifest by `/rce sort` (see "Unknown project" and "Keywords").
 - Reference pages (`project.md`, `frameworks/`, `docs/`, transcripts, handoff packets), unless the user asks to change them. When you do change one, keep every other line exactly as it was, and say in the reply which lines you changed.
 
+One file is rewritten on purpose: the Claude Code session backup in `inbox-unsorted/chats/claude-code/`, owned by the plugin's hook and changed only by it (`tools/README.md`).
+
 Hubs from before write-once (one daily or monthly file edited in place) keep working: their files count as already folded.
 
 ## Save rules (apply to every save)
@@ -34,7 +36,7 @@ Hubs from before write-once (one daily or monthly file edited in place) keep wor
 2. **Conflicts.** Write-once saves don't conflict. If an edit the user asked for is rejected because the file changed, re-read it and add only your new lines. Never drop or change lines you didn't write.
 3. **No duplicates.** Before saving, check today's entry files and folded log, and this month's decisions (entries and folded file). Skip anything already there, whoever saved it. List the folder to find entries; never guess names.
 4. **Changed minds.** When the user changes an earlier decision or fact, add a new entry ending `(replaces: <old item> of <date>)`, plus a context update with the current value; `/rce sort` makes `context.md` show only that. Never edit or delete old dated entries.
-5. **Ambiguity never blocks.** If the project or meaning is unclear (for example "ACME"), save under your best guess, mark it `(unsure: <A> or <B>)`, and ask the user in the same reply. Fix the entry when they answer.
+5. **Ambiguity never blocks.** If the project or meaning is unclear (for example "ACME"), save under your best guess, mark it `(unsure: <A> or <B>)`, and ask the user in the same reply. When they answer, write a new entry with the right target ending `(replaces: <the unsure entry> of <date>)`; never edit the first.
 6. **Chat names.** Name an inbox file from the chat's first message (a short title). Never ask the user what to call it.
 7. **Timezone.** All dates, times and file names in the hub use the `timezone` in `rce.config.yaml` (default UTC). Take the time from a tool (a clock, `date`, or the last commit) rather than estimating it; if you can't, write the date only.
 8. **Long pastes.** When the user pastes a long document, log one line describing it. Save the full text to `docs/` only if they ask.
@@ -90,7 +92,7 @@ Use only for items rule 5 can't place: a new `inbox-unsorted/<entry>` per save, 
 If the chat is in a project with no match in `manifest.yaml`:
 1. If no existing project name is close to it, register it automatically: create `projects/<name>/` with `project.md` (name, description, `keywords` drawn from the description: aliases, clients, products, people; status `active`), `context.md` and the first log entry, all new files in one commit. `/rce sort` adds it to `manifest.yaml` and moves matching inbox items into it.
 2. If an existing name is close (for example "Acme Rebrand" vs "Acme"), ask the user: (a) use the existing project, (b) register as new, (c) skip.
-3. The save line says: `↻ gh-rce › projects/<name> › log (new project registered, <n> inbox items moved)`.
+3. The save line says: `↻ gh-rce › projects/<name> › log (new project registered)`.
 
 ## Keywords
 
@@ -98,7 +100,7 @@ When the user mentions a new alias, client, product or person tied to a project,
 
 ## Profile changes
 
-If `profile` is set in `rce.config.yaml` and the user's role, interests or project list change, regenerate `<profile>/README.md` using only the sections listed in `<hub>/public/fields.yaml`.
+If `profile` is set in `rce.config.yaml` and the user's role, interests or project list change, offer to regenerate the profile and, only with the user's yes, regenerate `<profile>/README.md` using only the sections listed in `<hub>/public/fields.yaml`.
 
 ## After saving
 

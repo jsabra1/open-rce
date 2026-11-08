@@ -1,7 +1,7 @@
 ---
 name: "health-checkins"
 description: "Daily health check-ins: one short structured entry per day, private"
-triggers: ["chat title starts with a prefix in chat_patterns marked health", "the user says check-in, daily check-in or health check-in"]
+triggers: ["chat title matches a chat_patterns entry with module: health-checkins", "the user says check-in, daily check-in or health check-in"]
 private: true
 saves_to: "modules/health-checkins/"
 ---
@@ -12,7 +12,7 @@ A short daily check-in the user can do by text or voice. Everything it saves is 
 
 ## When it runs
 
-When a trigger matches. Recurring check-in chats should also be listed in `chat_patterns`, so their transcript is checkpointed every session.
+When a trigger matches. To run it in a recurring chat, add that chat's title prefix to `chat_patterns` with `module: health-checkins`; its transcript is then checkpointed every session too.
 
 ## The check-in
 

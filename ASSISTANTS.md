@@ -24,7 +24,7 @@ RCE is plain Markdown rules plus a private GitHub repo. Any assistant that can r
 ```
 RCE is on. My hub is <owner>/<hub> (private, on GitHub).
 At the start of each chat, read engine/AGENTS.md from jsabra1/open-rce
-(newest release) and follow it, using rce.config.yaml at the root of my hub.
+(newest release, v3.0.0 or later) and follow it, using rce.config.yaml at the root of my hub.
 Commands work with or without the slash: "rce push" is "/rce push".
 ```
 

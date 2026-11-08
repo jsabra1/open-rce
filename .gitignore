@@ -2,3 +2,5 @@
 *.zip
 # A filled-in config never belongs in this repo
 rce.config.yaml
+__pycache__/
+*.pyc

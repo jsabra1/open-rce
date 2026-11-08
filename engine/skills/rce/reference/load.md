@@ -25,12 +25,12 @@ Load everything else only when the task needs it: `docs/`, `chats/`, `memory/`, 
 
 For agents that need the full picture. Read in this order:
 1. `AGENTS.md`, `manifest.yaml`
-2. All of `me/`, including `me/updates/` (skip the private files with `/rce load deep public`)
+2. All of `me/`, including `me/updates/` (`/rce load deep public` skips the always-private files, `config.md`)
 3. Every project: `project.md`, `context.md`, all of `decisions/` and `decisions.md`, all of `log/` (daily and monthly files)
 4. Every project's `docs/` and `frameworks/`
 5. `memory/`, including `memory/updates/`
 6. `inbox-unsorted/` and open handoff packets in `handoffs/`
-7. Modules that are on: their `MODULE.md` and the last 30 days of their data, except private modules (skipped with `/rce load deep public`)
+7. Modules that are on: their `MODULE.md` and the last 30 days of their data, except private modules when the user ran `/rce load deep public`
 8. Transcripts: list each `chats/` folder (file names carry date and title). Open a full chat only when the user names it.
 
 Stop before your context window is full. Then report in one block:

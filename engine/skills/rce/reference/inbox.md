@@ -3,12 +3,13 @@
 Routing is automatic (see `capture.md`). `inbox-unsorted/` only holds items an agent could not place with confidence, so it should stay small.
 
 Run `/rce sort` now and then (Claude Code can run it at the start of a session) to fold saves and clear leftovers:
-1. Fold first (below), then read every `*.md` file in `inbox-unsorted/` except `README.md`.
+1. Fold first (below), then read every `*.md` file in `inbox-unsorted/` except `README.md`, `chats/` (transcripts and checkpoints: never routed, never deleted) and `tests/` (see step 6).
 2. Route each item with the rules in `capture.md`. Move it straight away; no approval step.
 3. Items you still can't place stay where they are.
 4. Moved items go into new entry files at their target (`capture.md`). Remove them from their inbox file and delete inbox files left empty, in the same commit.
 5. Update `context.md` (summary and `Last updated`) for every project whose state changed.
-6. Report: items moved (with destinations), items left, files deleted.
+6. Test files: delete `inbox-unsorted/tests/*_doctor.md` files and `handoffs/*_Doctor-Test.md` packets with their `_update-` files once they are older than today (they hold nothing but test lines). Other test messages stay.
+7. Report: items moved (with destinations), items left, files deleted.
 
 Never create repos. Never delete items that weren't moved.
 

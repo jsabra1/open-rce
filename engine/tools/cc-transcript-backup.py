@@ -11,9 +11,9 @@ it always holds the whole session as far as the local transcript has it.
 
 Settings come from the pointer ~/.config/rce/rce.config.yaml:
   owner, hub              required; no pointer means the hook does nothing
-  local_path              optional existing clone of the hub
   transcript_backup       optional; false turns this hook off
-Without local_path the hub is cloned once to ~/.cache/rce/<owner>__<hub>.
+The hub is cloned once to ~/.cache/rce/<owner>__<hub>, a clone only this hook
+uses, so a push never carries anything but the backup.
 The hub must be private; a public repo is never written to.
 
 Never blocks the session: every error goes to ~/.cache/rce/transcript-backup.log
@@ -79,10 +79,7 @@ def run(*cmd, cwd=None):
     return subprocess.run(list(cmd), cwd=cwd, capture_output=True, text=True, timeout=90)
 
 
-def hub_clone(owner, hub, local_path):
-    if local_path:
-        path = os.path.expanduser(local_path)
-        return path if os.path.isdir(os.path.join(path, ".git")) else None
+def hub_clone(owner, hub):
     path = os.path.join(CACHE, f"{owner}__{hub}")
     if not os.path.isdir(os.path.join(path, ".git")):
         os.makedirs(CACHE, exist_ok=True)
@@ -115,7 +112,7 @@ def main():
     if not is_private(owner, hub):
         log(f"{sid} {event}: {owner}/{hub} is not private or not reachable; nothing written")
         return
-    repo = hub_clone(owner, hub, pointer.get("local_path"))
+    repo = hub_clone(owner, hub)
     if not repo:
         log(f"{sid} {event}: no clone of {owner}/{hub}")
         return

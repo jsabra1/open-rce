@@ -62,7 +62,7 @@ owner: <owner>
 hub: <hub>
 ```
 
-- **Claude Code:** write it to `~/.config/rce/rce.config.yaml`. Optional keys there: `local_path` (an existing clone of the hub, for the session backup hook) and `transcript_backup: false` (turns the hook off; see `tools/README.md`). Tell the user once that Claude Code sessions are backed up to the hub on close and before compaction.
+- **Claude Code:** write it to `~/.config/rce/rce.config.yaml`. Optional key there: `transcript_backup: false` (turns the hook off; see `tools/README.md`). Tell the user once that Claude Code sessions are backed up to the hub on close and before compaction.
 - **Claude.ai and Cowork:** suggest the user add one line to their profile preferences (Settings → Profile): `My RCE hub is <owner>/<hub>.`
 - **Other tools:** the same line in their custom instructions.
 
@@ -71,7 +71,7 @@ hub: <hub>
 1. Show the status line, checking write access from permissions only (no test write):
    `RCE: ON · open-rce <version> · hub <owner>/<hub> · write access OK`
 2. Ask the user to share one fact about themselves, for example how they like answers written.
-3. Save it with `capture.md` (read it first): a bullet in `me/updates/YYYY-MM.md`, tagged `[preferences]`, one commit. End the reply with the save line, for example `↻ gh-rce › me › preferences`.
+3. Save it with `capture.md` (read it first): a new entry in `me/updates/YYYY-MM/` (write-once), tagged `[preferences]`, one commit. End the reply with the save line, for example `↻ gh-rce › me › preferences`.
 
 ## Step 7: wrap up
 

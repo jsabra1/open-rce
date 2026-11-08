@@ -28,12 +28,10 @@ profile: ""                        # for example my-public-profile
 
 # Extra files and folders that never go into the profile or any public output.
 # Always private, even if not listed: me/health.md, me/wealth.md,
-# me/relationships.md, me/updates/, every add-on repo, every private module.
+# me/relationships.md, me/updates/, me/people/, me/docs/, every add-on repo,
+# every private module.
 private_files: []
 #  - projects/acme/docs/contracts/
-
-# Make one of the always-private defaults shareable (rarely needed)
-not_private: []
 
 # Optional: house style for everything the AI writes into the hub
 writing_rules: []
@@ -43,8 +41,9 @@ writing_rules: []
 # Optional: chats that recur (a daily check-in, a voice chat). Chats whose
 # title starts with one of these save a transcript checkpoint every session.
 chat_patterns: []
-#  - prefix: "VC_"
-#    note: voice chats
+#  - prefix: "Daily_"
+#    note: daily voice chats
+#    module: health-checkins      # optional: this module runs in these chats
 
 # Optional modules, off by default (see reference/modules.md)
 modules: []

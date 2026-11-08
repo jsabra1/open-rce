@@ -27,7 +27,7 @@ Routine saves are write-once: each save creates new small entry files (for examp
 
 ## Rules
 
-- Never copy `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/`, private modules or add-on repos into a public profile or any public output.
+- Never copy `me/health.md`, `me/wealth.md`, `me/relationships.md`, `me/updates/`, `me/people/`, `me/docs/`, private modules or add-on repos into a public profile or any public output.
 - Never write passwords, API keys or tokens. Write `[secret omitted]`.
 - Never re-add content that is missing; it was removed on purpose.
 - Never delete content. Move it to an archive folder instead. The one exception: `/rce sort` removes entry and inbox files once their text is folded or moved, in the same commit, so nothing is lost.
