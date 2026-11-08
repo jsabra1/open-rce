@@ -1,5 +1,5 @@
 # RCE manifest: index of every project in this hub.
-# Routine saves never rewrite it; it changes only when a project is added, renamed or retired, or a keyword is added.
+# Routine saves never edit it. /rce sort adds new projects and keywords from saves; rename or retire changes it on request.
 # Routing matches each project's name, description and keywords. Each project's current state lives in its context.md.
 projects:
   - name: "Example"
