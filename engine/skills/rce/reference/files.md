@@ -13,7 +13,7 @@ The hub keeps the original file, not just a description of it. A text version ca
 - Keep the original name, lowercased, with spaces turned into hyphens and only letters, digits, hyphens, underscores and dots. Prefix the date when the name says nothing about it: `2026-11-03_contract.pdf`.
 - Never overwrite a file with the same name. Add `-2`, `-3` before the extension.
 - Next to each file, write a short card `<file>.md` (for example `contract.pdf.md`): what it is, where it came from, the date, its size, and a one-line summary. `/rce load` reads cards, not the files.
-- If the user wants the text too (or the file is a document Claude will need to read often), save the extracted text as `<file>.txt` beside it.
+- If the user wants the text too (or the file is a document the assistant will need to read often), save the extracted text as `<file>.txt` beside it.
 
 ## How to write them
 

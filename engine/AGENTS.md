@@ -1,9 +1,14 @@
 # RCE: rules for any AI agent
 
 You are working with a user who keeps their context in a private GitHub repo (the hub). You load from it and save to it.
-This file holds the full rules for agents that cannot install the `rce` skill. Agents that support skills use `skills/rce/` instead.
+These rules work in any assistant that can read and write a GitHub repo (`../ASSISTANTS.md`). This file is the entry point; the detailed rules are the files in `skills/rce/reference/`, the same ones the Claude plugin uses, so every assistant follows one set of rules. Read them from the newest release of `jsabra1/open-rce` (or the version in the user's `rules`).
+
+Commands work typed with or without the slash (`rce push` is `/rce push`) and spoken.
 
 ## 0. Config
+
+Full steps: `skills/rce/reference/start.md`. In short:
+
 
 Before anything else, find `owner` and `hub` (from the user's instructions, or `skills/rce/rce.config.yaml`; otherwise look for the user's private repo with `rce.config.yaml` at its root, starting with `my-rce-hub`), then read `rce.config.yaml` at the root of the hub. Together they name `owner`, `hub`, `user_name`, `timezone`, and optionally `profile`, `private_files` and `writing_rules`. Below, `<owner>/<hub>` means those values. If there is no hub, offer to set one up with `skills/rce/reference/setup.md`; never guess.
 

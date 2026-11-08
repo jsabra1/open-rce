@@ -20,7 +20,7 @@ Scope: the whole chat, from the first message. `/rce push today` covers only the
 /rce pull 4821
 ```
 
-Then one line on what the packet covers and the GitHub link. The code is enough: the receiving chat finds the hub on its own (`SKILL.md`, Step 0), also in voice mode.
+Then one line on what the packet covers and the GitHub link. The code is enough: the receiving chat finds the hub on its own (`start.md`), also in voice mode.
 
 **Write-once packets.** A packet is created in one commit and never edited afterwards, so any tool can read it, voice included (`io.md`, section 3). Every later change (pickup, a new decision, done) is a new file next to it: `handoffs/<code>_update-YYYY-MM-DD-HHMM.md`, one commit each, holding only what changed (for example `Status: Picked up by <session> on <date>` or `Decision added: ...`). Packets made before 3.0.0 may have been edited in place; read them as they are.
 

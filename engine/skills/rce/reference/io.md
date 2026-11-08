@@ -17,7 +17,7 @@ Connector tools may load on demand. Before deciding there is no connector, searc
 
 ## 2. Reading
 
-- Owner, repo and branch come from the config (`SKILL.md`, Step 0). Branch is the repo's default unless a rule names one.
+- Owner, repo and branch come from the config (`start.md`). Branch is the repo's default unless a rule names one.
 - Read each file once per chat and reuse it. Read a folder by listing it, never by guessing file names.
 - Never use raw addresses (`raw.githubusercontent.com`, `api.github.com` outside a tool). Private repos answer them with 404, which does not mean GitHub is down.
 - Only a failed call from the chosen route counts as "GitHub unreachable".
@@ -41,7 +41,7 @@ In this mode, only create new files. Never update a file you could not read in f
 - **Updating a file needs its current version.** Read it first and pass its SHA when the tool asks for one.
 - **Conflicts.** If a write is rejected because the file changed since you read it, read it again and add only your new lines. Never drop or change lines you didn't write, and never force-push.
 - **Text only, unless the route can carry bytes.** Binaries follow `files.md`.
-- **Private check.** Before the first write to a repo in a chat, confirm it is private (`SKILL.md`, Step 0). Never write to a public repo, except the profile repo when the config names it.
+- **Private check.** Before the first write to a repo in a chat, confirm it is private (`start.md`). Never write to a public repo, except the profile repo when the config names it.
 - **Secrets.** Run the secret scan in `capture.md` (rule 9) on every write, on every route, including transcripts and handoff packets.
 - **Private content stays private.** Never write anything from the always-private set (`config.md`, "Privacy defaults") to the profile repo, a public repo or any public output.
 

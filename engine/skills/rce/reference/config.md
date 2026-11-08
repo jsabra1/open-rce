@@ -6,12 +6,12 @@ Everything personal lives in the hub's `rce.config.yaml`, never in the rules. Th
 
 | Key | Default | Meaning | Used by |
 |---|---|---|---|
-| `schema_version` | `1` if missing | Config format. Current: `3` | Step 0, upgrades below |
+| `schema_version` | `1` if missing | Config format. Current: `3` | `start.md`, upgrades below |
 | `owner` | none (required) | GitHub account that owns the hub | Everything |
 | `hub` | none (required) | The private hub repo | Everything |
 | `user_name` | `the user` | What to call the user | Every save |
 | `timezone` | `UTC` | Timezone for every date, time and file name | Every save |
-| `enabled` | `true` | `false` pauses RCE in every tool: load nothing, save nothing, and say once `RCE: paused in rce.config.yaml` | Step 0 |
+| `enabled` | `true` | `false` pauses RCE in every tool: load nothing, save nothing, and say once `RCE: paused in rce.config.yaml` | `start.md` |
 | `rules` | `bundled`; `latest` if `rules_repo` is set (the pre-3 behavior). Setup writes `stable` | `stable`: the newest release of `rules_repo` (recommended: fixes arrive without a reinstall). `latest`: its `main` branch. A tag such as `v3.0.0`: that release only. `bundled`: the copy shipped with the plugin. Unreadable `rules_repo` falls back to bundled for that chat | Step 1 |
 | `rules_repo` | empty; setup writes `jsabra1/open-rce` | Public repo holding the rules. Needed for anything but `bundled` | Step 1 |
 | `profile` | empty | Optional generated public profile repo | `capture.md` |

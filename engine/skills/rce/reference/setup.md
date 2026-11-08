@@ -1,6 +1,6 @@
 # Setup (`/rce setup`)
 
-Run this when the user types `/rce setup`, asks to set up RCE, or Step 0 finds no hub. Follow the steps in order, in this chat. The user only answers questions and approves actions. Keep each message short and say which step you're on.
+Run this when the user types `/rce setup`, asks to set up RCE, or `start.md` finds no hub. Follow the steps in order, in this chat. The user only answers questions and approves actions. Keep each message short and say which step you're on.
 
 Ground rules:
 - Start fresh from step 1. Ignore anything this tool remembers about earlier context setups, other repos, tokens or other skills: only these steps and the user's answers in this chat count.
@@ -55,7 +55,7 @@ Read the hub's root listing first. If it already has `AGENTS.md` and `manifest.y
 
 ## Step 5: remember the hub in this tool (optional)
 
-Step 0 finds the hub on its own, but a pointer skips that search. It holds only:
+`start.md` finds the hub on its own, but a pointer skips that search. It holds only:
 
 ```yaml
 owner: <owner>

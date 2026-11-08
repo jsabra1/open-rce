@@ -8,7 +8,7 @@ Read `io.md` first; every check uses the route it picks.
 
 | # | Check | How | Pass |
 |---|---|---|---|
-| 1 | Hub and config | Step 0 finds the hub; it is private; `rce.config.yaml` names the same `owner` and `hub`; `schema_version` is `3` | All true |
+| 1 | Hub and config | `start.md` finds the hub; it is private; `rce.config.yaml` names the same `owner` and `hub`; `schema_version` is `3` | All true |
 | 2 | Rules | The rules in use (tag, `main` or bundled) and their version | Matches `rules` in the config, or the bundled fallback is announced |
 | 3 | Read | Read `AGENTS.md` and `manifest.yaml` | Both come back with text |
 | 4 | Write | Write permission from `io.md`; then create `inbox-unsorted/tests/YYYY-MM-DD_HHMMSS_doctor.md` holding one line `RCE doctor test` | The file exists when listed |

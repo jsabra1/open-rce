@@ -28,12 +28,15 @@ Tell the user to install the **Recursive Context Engine** plugin from **Customiz
 
 ### ChatGPT and other tools
 
+See `ASSISTANTS.md` for each assistant's notes.
+
 Try a skill first if the tool supports skills (the ChatGPT desktop app sometimes does): give the user the folder `engine/skills/rce/` from this repo to add. Otherwise give the user this block to paste into the tool's custom instructions, Project instructions or custom GPT:
 
 ```
 RCE is on. My hub is <owner>/<hub> (private, on GitHub).
-At the start of each chat, read engine/AGENTS.md from jsabra1/open-rce and follow it,
-using rce.config.yaml at the root of my hub for my settings.
+At the start of each chat, read engine/AGENTS.md from jsabra1/open-rce
+(newest release) and follow it, using rce.config.yaml at the root of my hub.
+Commands work with or without the slash: "rce push" is "/rce push".
 ```
 
 ## 3. First run
