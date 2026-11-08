@@ -32,10 +32,10 @@ An add-on is a private repo outside the hub for a bigger piece of context. It is
 |---|---|---|
 | `name` | none (required) | Short name, used in save lines |
 | `repo` | none (required) | Repo name; owner is `owner` unless written `owner/repo` |
-| `command` | `name` | `/rcx <command>` loads it. Must not clash with a built-in command; setup refuses a clash |
+| `command` | `name` | `/rce <command>` loads it. Must not clash with a built-in command; setup refuses a clash |
 | `instructions` | `AGENTS.md` | The add-on's own rules, read first and followed while it is loaded |
 | `saves_to` | `log/` | Saves from a chat that loaded the add-on go here, inside the add-on |
-| `load_deep` | `false` | `true` lets `/rcx load deep` include it |
+| `load_deep` | `false` | `true` lets `/rce load deep` include it |
 
 An add-on loads only on its command. If the tool cannot read the add-on repo, say so and stop: never fall back to the hub, and never save add-on content into the hub.
 

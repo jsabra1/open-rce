@@ -1,8 +1,8 @@
-# Inbox (`/rcx sort`)
+# Inbox (`/rce sort`)
 
 Routing is automatic (see `capture.md`). `inbox-unsorted/` only holds items an agent could not place with confidence, so it should stay small.
 
-Run `/rcx sort` now and then (Claude Code can run it at the start of a session) to fold saves and clear leftovers:
+Run `/rce sort` now and then (Claude Code can run it at the start of a session) to fold saves and clear leftovers:
 1. Fold first (below), then read every `*.md` file in `inbox-unsorted/` except `README.md`.
 2. Route each item with the rules in `capture.md`. Move it straight away; no approval step.
 3. Items you still can't place stay where they are.
@@ -14,7 +14,7 @@ Never create repos. Never delete items that weren't moved.
 
 ## Fold
 
-Saves write one small entry file each (`capture.md`, "Write-once saves"). Folding merges them into the tidy period files. It runs as part of `/rcx sort`, and Claude Code may run it at the start of a session. It needs a route that can read and update files (`io.md`), so it never runs in voice.
+Saves write one small entry file each (`capture.md`, "Write-once saves"). Folding merges them into the tidy period files. It runs as part of `/rce sort`, and Claude Code may run it at the start of a session. It needs a route that can read and update files (`io.md`), so it never runs in voice.
 
 1. Fold only entries dated before today (in `timezone`); today's stay as they are, so live chats never collide with a fold.
 2. For each folder, in time order:

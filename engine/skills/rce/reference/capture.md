@@ -2,28 +2,28 @@
 
 Save whenever the user shares something substantial about themselves or their work: facts, decisions, plans, goals, preferences, project progress.
 You judge what is substantial. Skip chit-chat. Do not batch: save in the same turn.
-Do not save when the user has typed `/rcx off` in this chat, or the chat is incognito.
+Do not save when the user has typed `/rce off` in this chat, or the chat is incognito.
 
 ## Write-once saves
 
-Read and write as `io.md` says. Every save creates **new files only**: it never reads a file in order to change it. That works the same with every route, voice included, and two chats can never overwrite each other. `/rcx sort` folds the new files into the tidy period files later (`inbox.md`, "Fold").
+Read and write as `io.md` says. Every save creates **new files only**: it never reads a file in order to change it. That works the same with every route, voice included, and two chats can never overwrite each other. `/rce sort` folds the new files into the tidy period files later (`inbox.md`, "Fold").
 
 A save writes one **entry file** per target. Name: `YYYY-MM-DD_HHMMSS_<chat-slug>.md` (time from a tool, in `timezone`; `<chat-slug>` = the chat title in lowercase with hyphens, at most 40 characters).
 
-| What | Entry file (new, per save) | Folded into (by `/rcx sort`) |
+| What | Entry file (new, per save) | Folded into (by `/rce sort`) |
 |---|---|---|
 | Log entries | `projects/<name>/log/YYYY-MM/<entry>` | `log/YYYY-MM/YYYY-MM-DD.md` |
 | Decisions | `projects/<name>/decisions/YYYY-MM/<entry>` | `decisions/YYYY-MM.md`, newest first |
 | Current state of a project | `projects/<name>/context-updates/<entry>` | `context.md` |
 | New facts about the user | `me/updates/YYYY-MM/<entry>`, each bullet tagged `[about]`, `[preferences]`, `[health]`, `[wealth]`, `[relationships]` or `[people: <name>]` | `me/updates/YYYY-MM.md`, later the snapshot files |
 | Cross-project knowledge | `memory/updates/YYYY-MM/<entry>`, each bullet tagged `[<topic>]` | `memory/updates/YYYY-MM.md`, later `memory/<topic>.md` |
-| Items you can't place | `inbox-unsorted/<entry>` | routed by `/rcx sort` |
+| Items you can't place | `inbox-unsorted/<entry>` | routed by `/rce sort` |
 
 Every entry file starts with one line: `<!-- rce entry YYYY-MM-DD HH:MM:SS <tz> · <tool> · <chat title> -->`, then its bullets.
 
-Never change these on a routine save (only `/rcx sort`, or the user asking, changes them):
+Never change these on a routine save (only `/rce sort`, or the user asking, changes them):
 - The folded period files above, `context.md`, and the snapshot files in `me/` and `memory/`.
-- `manifest.yaml`. New projects and keywords are written as entry files and added to the manifest by `/rcx sort` (see "Unknown project" and "Keywords").
+- `manifest.yaml`. New projects and keywords are written as entry files and added to the manifest by `/rce sort` (see "Unknown project" and "Keywords").
 - Reference pages (`project.md`, `frameworks/`, `docs/`, transcripts, handoff packets), unless the user asks to change them. When you do change one, keep every other line exactly as it was, and say in the reply which lines you changed.
 
 Hubs from before write-once (one daily or monthly file edited in place) keep working: their files count as already folded.
@@ -33,7 +33,7 @@ Hubs from before write-once (one daily or monthly file edited in place) keep wor
 1. **Never restore missing content.** If something you saved earlier in this chat is no longer in the hub, the user or another session removed it on purpose. Do not add it back. Mention it in one line.
 2. **Conflicts.** Write-once saves don't conflict. If an edit the user asked for is rejected because the file changed, re-read it and add only your new lines. Never drop or change lines you didn't write.
 3. **No duplicates.** Before saving, check today's entry files and folded log, and this month's decisions (entries and folded file). Skip anything already there, whoever saved it. List the folder to find entries; never guess names.
-4. **Changed minds.** When the user changes an earlier decision or fact, add a new entry ending `(replaces: <old item> of <date>)`, plus a context update with the current value; `/rcx sort` makes `context.md` show only that. Never edit or delete old dated entries.
+4. **Changed minds.** When the user changes an earlier decision or fact, add a new entry ending `(replaces: <old item> of <date>)`, plus a context update with the current value; `/rce sort` makes `context.md` show only that. Never edit or delete old dated entries.
 5. **Ambiguity never blocks.** If the project or meaning is unclear (for example "ACME"), save under your best guess, mark it `(unsure: <A> or <B>)`, and ask the user in the same reply. Fix the entry when they answer.
 6. **Chat names.** Name an inbox file from the chat's first message (a short title). Never ask the user what to call it.
 7. **Timezone.** All dates, times and file names in the hub use the `timezone` in `rce.config.yaml` (default UTC). Take the time from a tool (a clock, `date`, or the last commit) rather than estimating it; if you can't, write the date only.
@@ -66,14 +66,14 @@ Every save is routed automatically, item by item. Nobody sorts by hand.
 New files only, in one commit:
 1. Log entry: `projects/<name>/log/YYYY-MM/<entry>` with `- HH:MM: <what happened, in rich detail>`
 2. Decisions entry (if any): `projects/<name>/decisions/YYYY-MM/<entry>` with `- YYYY-MM-DD: <decision>, because <reason>. Rejected: <alternatives>.`
-3. Context update (if the current state changed): `projects/<name>/context-updates/<entry>` with the new state as bullets, plus `Summary: <one line>` when the summary changes. `/rcx sort` applies it to `context.md`.
+3. Context update (if the current state changed): `projects/<name>/context-updates/<entry>` with the new state as bullets, plus `Summary: <one line>` when the summary changes. `/rce sort` applies it to `context.md`.
 
 Commit message: `rce: <project>: <short topic>`.
 
 ## `me/` and `memory/` save
 
 A new entry file with one bullet per fact: `- YYYY-MM-DD [health]: <fact> (auto-routed from <Chat Name>)`. If a fact replaces an older one, say so in the bullet: `(replaces <old fact>)`.
-`/rcx sort` folds entries into the month file, and into the snapshot files (`me/health.md` and so on) when the user asks.
+`/rce sort` folds entries into the month file, and into the snapshot files (`me/health.md` and so on) when the user asks.
 Commit message: `rce: me: <topic>` or `rce: memory: <topic>`. Items for several targets go in one commit: `rce: <first target>: <short topic>`.
 
 ## Inbox save (fallback only)
@@ -83,13 +83,13 @@ Use only for items rule 5 can't place: a new `inbox-unsorted/<entry>` per save, 
 ## Unknown project
 
 If the chat is in a project with no match in `manifest.yaml`:
-1. If no existing project name is close to it, register it automatically: create `projects/<name>/` with `project.md` (name, description, `keywords` drawn from the description: aliases, clients, products, people; status `active`), `context.md` and the first log entry, all new files in one commit. `/rcx sort` adds it to `manifest.yaml` and moves matching inbox items into it.
+1. If no existing project name is close to it, register it automatically: create `projects/<name>/` with `project.md` (name, description, `keywords` drawn from the description: aliases, clients, products, people; status `active`), `context.md` and the first log entry, all new files in one commit. `/rce sort` adds it to `manifest.yaml` and moves matching inbox items into it.
 2. If an existing name is close (for example "Acme Rebrand" vs "Acme"), ask the user: (a) use the existing project, (b) register as new, (c) skip.
 3. The save line says: `↻ gh-rce › projects/<name> › log (new project registered, <n> inbox items moved)`.
 
 ## Keywords
 
-When the user mentions a new alias, client, product or person tied to a project, add a line `Keywords: <word>, <word>` to that save's log entry. `/rcx sort` adds them to `manifest.yaml`.
+When the user mentions a new alias, client, product or person tied to a project, add a line `Keywords: <word>, <word>` to that save's log entry. `/rce sort` adds them to `manifest.yaml`.
 
 ## Profile changes
 

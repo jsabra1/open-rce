@@ -1,4 +1,4 @@
-# Live link (`/rcx live`)
+# Live link (`/rce live`)
 
 Links two or more chats or sessions until closed. Every turn is saved verbatim to `<hub>/handoffs/live/<code>_<Topic>/`.
 
@@ -22,14 +22,14 @@ handoffs/live/<code>_<Topic-With-Hyphens>/
 
 The code comes from the same pool as handoffs. Status lives only in `CHANNEL.md`.
 
-## Open (`/rcx live`)
+## Open (`/rce live`)
 
 1. Pick a code and a short topic.
 2. One commit: `CHANNEL.md` (Status: Open, side A = this chat), `0001-A.md` with a short context packet (TL;DR, goal, state, next step, handles).
-3. Reply with the join command alone in a code block: `/rcx live 4821`.
+3. Reply with the join command alone in a code block: `/rce live 4821`.
 4. Remember: code, folder, own side letter, last entry seen.
 
-## Join (`/rcx live <code>`)
+## Join (`/rce live <code>`)
 
 1. Find the folder. Closed: say so and offer to read it like a pull.
 2. Read `CHANNEL.md` and all entries (more than 10: newest 10 in full, older by title).
@@ -48,8 +48,8 @@ The code comes from the same pool as handoffs. Status lives only in `CHANNEL.md`
 
 ## Leave and close
 
-- `/rcx live leave`: write a final entry, mark your side `Left` in `CHANNEL.md`, stop syncing.
-- `/rcx live off`: set `Status: Closed` with time and side, write a final entry, in one commit. Other sides see it on their next turn, read the final entries once, and stop.
+- `/rce live leave`: write a final entry, mark your side `Left` in `CHANNEL.md`, stop syncing.
+- `/rce live off`: set `Status: Closed` with time and side, write a final entry, in one commit. Other sides see it on their next turn, read the final entries once, and stop.
 
 ## Entry template (`NNNN-<side>.md`)
 

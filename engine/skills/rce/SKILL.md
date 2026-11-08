@@ -1,11 +1,11 @@
 ---
-name: rcx
-description: "Recursive Context Engine (RCE): memory management and shared context across AI agents. Stores the user's memories, context and files (PDFs, images and other binaries) in a private GitHub repo they own, so Claude and other tools load and save the same memory. Use in any conversation where the user shares facts, decisions, plans, progress or preferences about themselves or their work, asks Claude to remember something, or shares a file to keep; at the start of any chat that needs the user's context; and for any /rcx command (/rcx, /rcx setup, /rcx sync, /rcx push, /rcx pull, /rcx load, /rcx load deep, /rcx live, /rcx off, /rcx on, /rcx sort, /rcx files, /rcx retire)."
+name: rce
+description: "Recursive Context Engine (RCE): memory management and shared context across AI agents. Stores the user's memories, context and files (PDFs, images and other binaries) in a private GitHub repo they own, so Claude and other tools load and save the same memory. Use in any conversation where the user shares facts, decisions, plans, progress or preferences about themselves or their work, asks Claude to remember something, or shares a file to keep; at the start of any chat that needs the user's context; and for any /rce command (/rce, /rce setup, /rce sync, /rce push, /rce pull, /rce load, /rce load deep, /rce live, /rce off, /rce on, /rce sort, /rce files, /rce retire)."
 ---
 
 # RCE: Recursive Context Engine
 
-Engine: open-rce 3.0.0-dev (shown in the `/rcx` status line, so a stale copy is easy to spot).
+Engine: open-rce 3.0.0-dev (shown in the `/rce` status line, so a stale copy is easy to spot).
 
 The user keeps their memory and context in a private GitHub repo (the hub) so any AI tool can load it and save to it: facts and preferences, project logs and decisions, things they ask Claude to remember, and files such as PDFs and images.
 GitHub is the single source of truth. Summaries never replace originals.
@@ -41,35 +41,35 @@ Every key, its default and how to upgrade an older config are in `reference/conf
 
 If `enabled` is `false`, stop here: load nothing, save nothing, and say once `RCE: paused in rce.config.yaml`.
 
-If no hub is found, offer `/rcx setup` (`reference/setup.md`) and save nothing until it's done. Do not guess an owner or hub. If the hub has no `rce.config.yaml`, use the defaults in `assets/rce.config.example.yaml` and say so once.
+If no hub is found, offer `/rce setup` (`reference/setup.md`) and save nothing until it's done. Do not guess an owner or hub. If the hub has no `rce.config.yaml`, use the defaults in `assets/rce.config.example.yaml` and say so once.
 
 ## Step 1: read the current rules (once per chat)
 
-Before your first RCE action in a chat (load, save or any `/rcx` command), read the rule file you need from `reference/`:
+Before your first RCE action in a chat (load, save or any `/rce` command), read the rule file you need from `reference/`:
 
 | For | Read |
 |---|---|
 | Any read or write to GitHub (always, first) | `io.md` |
 | Any save (always read this before the first save) | `capture.md` |
-| Loading context, `/rcx load`, `/rcx load deep` | `load.md` |
-| `/rcx sync` | `sync.md` |
-| `/rcx push`, `/rcx pull` | `push-pull.md` and `packet-template.md` |
-| `/rcx live` | `live.md` |
-| `/rcx sort` | `inbox.md` |
-| Files (PDFs, images, other binaries), `/rcx files` | `files.md` |
-| `/rcx setup`, or no hub found | `setup.md` |
+| Loading context, `/rce load`, `/rce load deep` | `load.md` |
+| `/rce sync` | `sync.md` |
+| `/rce push`, `/rce pull` | `push-pull.md` and `packet-template.md` |
+| `/rce live` | `live.md` |
+| `/rce sort` | `inbox.md` |
+| Files (PDFs, images, other binaries), `/rce files` | `files.md` |
+| `/rce setup`, or no hub found | `setup.md` |
 | Config keys, defaults, upgrades | `config.md` |
 
 How to read them:
 - Read the local copy in `reference/` next to this file.
-- If `rules` is `stable`, `latest` or a tag, read the same files from `rules_repo` instead (folder `engine/skills/rcx/reference/`): `latest` = branch `main`, `stable` = the newest release tag, a tag = that tag. Read them the way `io.md` says. The GitHub copy wins. With no `rules` key, a set `rules_repo` means `latest`.
+- If `rules` is `stable`, `latest` or a tag, read the same files from `rules_repo` instead (folder `engine/skills/rce/reference/`): `latest` = branch `main`, `stable` = the newest release tag, a tag = that tag. Read them the way `io.md` says. The GitHub copy wins. With no `rules` key, a set `rules_repo` means `latest`.
 - Read each file once per chat and reuse it.
 
 ## If the rules or the hub can't be read (fallback)
 
 Do not guess the full rules. Never drop a save. For each substantial item the user shares:
-1. If any GitHub write works, create one **new** file `inbox-unsorted/YYYY-MM-DD_HHMM_<short chat title>.md` in the hub (a new file needs no read first), one dated bullet per item with its likely target. `/rcx sort` files it later. Save line: `↻ gh-rce › inbox (rules not loaded: <short reason>)`.
-2. If nothing can be written, end the reply with `⚠ RCE push failed: <short reason>`, then list the items as dated bullets, each with its likely target (`projects/<name>/`, `me/`, `memory/` or inbox), so the user can paste them later or run `/rcx sync` once GitHub works.
+1. If any GitHub write works, create one **new** file `inbox-unsorted/YYYY-MM-DD_HHMM_<short chat title>.md` in the hub (a new file needs no read first), one dated bullet per item with its likely target. `/rce sort` files it later. Save line: `↻ gh-rce › inbox (rules not loaded: <short reason>)`.
+2. If nothing can be written, end the reply with `⚠ RCE push failed: <short reason>`, then list the items as dated bullets, each with its likely target (`projects/<name>/`, `me/`, `memory/` or inbox), so the user can paste them later or run `/rce sync` once GitHub works.
 
 ## Repos (owner from the config)
 
@@ -80,7 +80,7 @@ Do not guess the full rules. Never drop a save. For each substantial item the us
 
 ## Always on
 
-RCE is on in every chat unless the user types `/rcx off` or the chat is incognito.
+RCE is on in every chat unless the user types `/rce off` or the chat is incognito.
 Load context at the start of a chat that needs it. Save whenever the user shares something substantial; you judge what is substantial and skip chit-chat.
 End every reply that saved something with the save line, for example `↻ gh-rce › projects/acme › decisions` (format in `capture.md`).
 
@@ -88,19 +88,19 @@ End every reply that saved something with the save line, for example `↻ gh-rce
 
 | Command | What it does | Rule file |
 |---|---|---|
-| `/rcx` | Status: on or off, where this chat saves, access OK, last save. Check write access from permissions as `io.md` says; never write a file to test it. If nothing is saved yet, offer `/rcx sync` | `capture.md` |
-| `/rcx setup` | Create the private hub and connect this tool | `setup.md` |
-| `/rcx sync` | Save this whole chat into the hub | `sync.md` |
-| `/rcx push` | Handoff packet + 4-digit code | `push-pull.md` |
-| `/rcx pull <code>` | Load a handoff packet | `push-pull.md` |
-| `/rcx load` / `/rcx load deep` | Load context / the whole hub | `load.md` |
-| `/rcx live`, `/rcx live <code>`, `/rcx live off`, `/rcx live leave` | Live link between chats | `live.md` |
-| `/rcx off` / `/rcx on` | Pause or resume saving in this chat | none |
-| `/rcx sort` | Route leftover inbox items; fold updates | `inbox.md` |
-| `/rcx files` | Finish saving files marked `binary pending` | `files.md` |
-| `/rcx retire <project>` | Set the project's manifest status to `archived`. Delete only on an explicit "delete" | none |
+| `/rce` | Status: on or off, where this chat saves, access OK, last save. Check write access from permissions as `io.md` says; never write a file to test it. If nothing is saved yet, offer `/rce sync` | `capture.md` |
+| `/rce setup` | Create the private hub and connect this tool | `setup.md` |
+| `/rce sync` | Save this whole chat into the hub | `sync.md` |
+| `/rce push` | Handoff packet + 4-digit code | `push-pull.md` |
+| `/rce pull <code>` | Load a handoff packet | `push-pull.md` |
+| `/rce load` / `/rce load deep` | Load context / the whole hub | `load.md` |
+| `/rce live`, `/rce live <code>`, `/rce live off`, `/rce live leave` | Live link between chats | `live.md` |
+| `/rce off` / `/rce on` | Pause or resume saving in this chat | none |
+| `/rce sort` | Route leftover inbox items; fold updates | `inbox.md` |
+| `/rce files` | Finish saving files marked `binary pending` | `files.md` |
+| `/rce retire <project>` | Set the project's manifest status to `archived`. Delete only on an explicit "delete" | none |
 
-`/rcx` status reply:
+`/rce` status reply:
 ```
 RCE: ON · open-rce 3.0.0-dev · hub <owner>/<hub> · saves to projects/acme · write access OK · last save 14:02
 ```

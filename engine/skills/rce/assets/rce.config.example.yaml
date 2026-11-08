@@ -1,8 +1,8 @@
 # RCE configuration. Lives at the root of your hub as rce.config.yaml.
-# /rcx setup fills it in for you. Tools find the hub by searching your repos
+# /rce setup fills it in for you. Tools find the hub by searching your repos
 # for this file; a pointer with just owner and hub skips that search.
 # No secrets here: access comes from each tool's GitHub connector or gh login.
-# Every key is documented in skills/rcx/reference/config.md.
+# Every key is documented in skills/rce/reference/config.md.
 
 schema_version: 3                  # config format; see config.md for upgrades
 
@@ -12,7 +12,7 @@ user_name: Alex                    # what the AI calls you in rules and saves
 timezone: UTC                      # all dates, times and file names in the hub
 
 # Master switch. false pauses RCE in every tool on its next read: nothing is
-# loaded or saved until it is true again. /rcx off pauses one chat only.
+# loaded or saved until it is true again. /rce off pauses one chat only.
 enabled: true
 
 # Which rules to follow. "bundled" uses the copy shipped with the plugin.
@@ -52,9 +52,9 @@ modules: []
 addons: []
 #  - name: mentor
 #    repo: my-mentor-notes          # private repo, same owner
-#    command: mentor                # /rcx mentor loads it
+#    command: mentor                # /rce mentor loads it
 #    instructions: AGENTS.md        # the add-on's own rules, followed while loaded
 #    saves_to: log/                 # saves from that chat stay in the add-on
-#    load_deep: false               # /rcx load deep skips it
+#    load_deep: false               # /rce load deep skips it
 
 transcript_split_chars: 500000

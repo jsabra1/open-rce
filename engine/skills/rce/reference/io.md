@@ -48,8 +48,8 @@ In this mode, only create new files. Never update a file you could not read in f
 
 Never drop a save.
 
-1. If writing works but the target file can't be read or updated safely, create one **new** file instead: `inbox-unsorted/YYYY-MM-DD_HHMM_<short chat title>.md`, one dated bullet per item with its likely target. `/rcx sort` files it later. Save line: `↻ gh-rce › inbox (<short reason>)`.
-2. If nothing can be written: end the reply with `⚠ RCE push failed: <short reason>` and list the items as dated bullets, each with its likely target (`projects/<name>/`, `me/`, `memory/` or inbox), so the user can paste them later or run `/rcx sync` once GitHub works.
+1. If writing works but the target file can't be read or updated safely, create one **new** file instead: `inbox-unsorted/YYYY-MM-DD_HHMM_<short chat title>.md`, one dated bullet per item with its likely target. `/rce sort` files it later. Save line: `↻ gh-rce › inbox (<short reason>)`.
+2. If nothing can be written: end the reply with `⚠ RCE push failed: <short reason>` and list the items as dated bullets, each with its likely target (`projects/<name>/`, `me/`, `memory/` or inbox), so the user can paste them later or run `/rce sync` once GitHub works.
 
 ## 6. Per assistant
 

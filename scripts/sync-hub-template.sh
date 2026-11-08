@@ -1,8 +1,8 @@
 #!/bin/sh
-# Make jsabra1/rce-hub-template match engine/skills/rcx/assets/hub-template/.
+# Make jsabra1/rce-hub-template match engine/skills/rce/assets/hub-template/.
 # Usage: scripts/sync-hub-template.sh   (run from the open-rce root; needs gh login)
 set -eu
-SRC="$(cd "$(dirname "$0")/.." && pwd)/engine/skills/rcx/assets/hub-template"
+SRC="$(cd "$(dirname "$0")/.." && pwd)/engine/skills/rce/assets/hub-template"
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 gh repo clone jsabra1/rce-hub-template "$TMP/t" -- -q
