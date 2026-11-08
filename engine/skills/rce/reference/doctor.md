@@ -28,4 +28,4 @@ RCE doctor · <tool> · open-rce <version> · hub <owner>/<hub>
 1 hub ✓ · 2 rules ✓ (v3.0.0) · 3 read ✓ · 4 write ✓ · 5 voice read ✓ · 6 handoff ✓ · 7 privacy ✓ · 8 add-ons ✓ (1)
 ```
 
-Common fixes: no write (give the connector write access to the hub), no add-on access (grant that repo to this tool's connector), wrong rules version (update the plugin or set `rules: stable`), stale engine (`rce-engine` or another old RCE skill still installed: remove it, start a new chat).
+Common fixes: no write (give the connector write access to the hub), no add-on access (grant that repo to this tool's connector), wrong rules version (update the plugin or set `rules: stable`), stale engine (an older RCE skill or plugin still installed: remove it, start a new chat).

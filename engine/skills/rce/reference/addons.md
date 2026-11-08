@@ -1,6 +1,6 @@
 # Add-on repos (`addons.md`)
 
-An add-on is a private repo outside the hub for a bigger piece of context: a book, a client archive, a mentor's notes. Each one is listed under `addons:` in `rce.config.yaml` (fields in `config.md`) and loads only on its own command.
+An add-on is a private repo outside the hub for a bigger piece of context: a book, a client archive, a coach's notes. Each one is listed under `addons:` in `rce.config.yaml` (fields in `config.md`) and loads only on its own command.
 
 ## Loading (`/rce <command>`)
 

@@ -3,7 +3,10 @@
 RCE is memory management and shared context across AI agents: every AI tool you use gets the same memory. Your context (who you are, your projects, decisions, logs, the things you ask Claude to remember, and files such as PDFs and images) lives in **one private GitHub repo that you own**, the hub. Claude, ChatGPT and other agents load from it at the start of a chat and save to it as you work, so a new chat in any tool picks up where the last one left off.
 
 - **You own the data.** It is plain Markdown in your own private repo. No database, no server, no account with us.
-- **Any tool.** One plugin, **Recursive Context Engine**, for Claude.ai, Cowork and Claude Code; a plain `AGENTS.md` for everything else.
+- **Any assistant.** One plugin, **Recursive Context Engine**, for Claude.ai, Cowork and Claude Code; the same rules through `AGENTS.md` for ChatGPT, Gemini, Copilot and any assistant that can write to GitHub ([ASSISTANTS.md](ASSISTANTS.md)).
+- **Works by voice.** Saves, loads and handoffs (`/rce pull 4821`, spoken) work in voice mode.
+- **Never overwrites.** Every save creates a new small file; nothing is edited, so tools never clash.
+- **Self-test.** `/rce doctor` checks every part and says what to fix.
 - **Claude's memories, in your repo.** When you ask Claude to remember something, it's saved to the hub, so every tool shares it.
 - **Files too.** PDFs, images and other binaries are kept as the original file, with a short card beside each one. Tools that can only write text leave a `binary pending` card, and `/rce files` finishes the upload from Claude Code.
 - **Small, safe saves.** Daily log files, monthly decision files and a short `context.md` per project. Nothing is overwritten or deleted.

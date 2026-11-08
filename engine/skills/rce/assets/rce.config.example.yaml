@@ -53,9 +53,9 @@ modules: []
 # Optional add-on repos: private repos outside the hub for bigger pieces of
 # context. Each loads only on its own command and follows its own AGENTS.md.
 addons: []
-#  - name: mentor
-#    repo: my-mentor-notes          # private repo, same owner
-#    command: mentor                # /rce mentor loads it
+#  - name: book
+#    repo: my-book-notes            # private repo, same owner
+#    command: book                  # /rce book loads it
 #    instructions: AGENTS.md        # the add-on's own rules, followed while loaded
 #    saves_to: log/                 # saves from that chat stay in the add-on
 #    load_deep: false               # /rce load deep skips it
