@@ -1,5 +1,10 @@
 # open-rce: Recursive Context Engine
 
+## Status (2026-11-20)
+
+**Paused.** Development continues in a private build and will be ported back here, under the new name **open RCN** (`open-rcn`), when it is ready. RCE has been renamed RCN (Recursive Context eNgine). Version 3.0.0 is parked on branch `v3-migration`. Issues stay open; nothing here is deleted.
+
+
 RCE is memory management and shared context across AI agents: every AI tool you use gets the same memory. Your context (who you are, your projects, decisions, logs, the things you ask Claude to remember, and files such as PDFs and images) lives in **one private GitHub repo that you own**, the hub. Claude, ChatGPT and other agents load from it at the start of a chat and save to it as you work, so a new chat in any tool picks up where the last one left off.
 
 - **You own the data.** It is plain Markdown in your own private repo. No database, no server, no account with us.
