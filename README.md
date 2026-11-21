@@ -4,7 +4,7 @@
 
 **Paused.** Development continues in a private build and will be ported back here, under the new name **open RCN** (`open-rcn`), when it is ready. RCE has been renamed RCN (Recursive Context eNgine). Version 3.0.0 is parked on branch `v3-migration`. Issues stay open; nothing here is deleted.
 
-**Reuse, don't recreate.** The repos this kit used are retired and stored as full-history git bundles in the owner's private archive, [`jsabra1/rcn-archive`](https://github.com/jsabra1/rcn-archive), folder `rcn/`. When open RCN comes back, restore them from there instead of creating new ones:
+**Reuse, don't recreate.** The repos this kit used are retired and stored as full-history git bundles in the owner's private archive, [`jsabra1/rcn-archive`](https://github.com/jsabra1/rcn-archive), folder `open-rcn-templates/`. When open RCN comes back, restore them from there instead of creating new ones:
 
 | Repo | What it is | What it was used for | What it contains |
 |---|---|---|---|
