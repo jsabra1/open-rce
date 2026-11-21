@@ -4,6 +4,15 @@
 
 **Paused.** Development continues in a private build and will be ported back here, under the new name **open RCN** (`open-rcn`), when it is ready. RCE has been renamed RCN (Recursive Context eNgine). Version 3.0.0 is parked on branch `v3-migration`. Issues stay open; nothing here is deleted.
 
+**Reuse, don't recreate.** The repos this kit used are retired and stored as full-history git bundles in the owner's private archive, [`jsabra1/rcn-archive`](https://github.com/jsabra1/rcn-archive), folder `rcn/`. When open RCN comes back, restore them from there instead of creating new ones:
+
+| Repo | What it is | What it was used for | What it contains |
+|---|---|---|---|
+| `rce-hub-template` | The empty starter hub for this kit (a GitHub template repo) | New users clicked "Use this template" to make their own private hub | The hub skeleton: `AGENTS.md`, `manifest.yaml`, blank `me/` files, a sample `projects/example/`, empty `memory/`, `inbox-unsorted/` and `handoffs/`, and `public/fields.yaml`. No real data. Becomes `rcn-hub-template` |
+| `rce-staging-hub` | A throwaway test hub made from the template | The 3.0.0 dry run on 2026-11-08 (write, voice read, handoff round trip, fold); it passed | The template plus fake test data only (a made-up `acme-launch` project, a test handoff). Reuse it for release dry runs |
+
+The template's files are also in this repo on branch `v3-migration`, at `engine/skills/rcx/assets/hub-template/`.
+
 
 RCE is memory management and shared context across AI agents: every AI tool you use gets the same memory. Your context (who you are, your projects, decisions, logs, the things you ask Claude to remember, and files such as PDFs and images) lives in **one private GitHub repo that you own**, the hub. Claude, ChatGPT and other agents load from it at the start of a chat and save to it as you work, so a new chat in any tool picks up where the last one left off.
 
